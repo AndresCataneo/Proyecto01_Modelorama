@@ -56,9 +56,9 @@ public class Departamento extends ComponenteCatalogo {
     }
 
     /**
-    * Regresa el nombre del producto
+    * Regresa el nombre del departamento
     *
-    * @return Cadena que representa el nombre del producto
+    * @return Cadena que representa el nombre del departamento
     */
     public String getNombre(){
         return nombre;

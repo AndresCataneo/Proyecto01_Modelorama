@@ -2,14 +2,14 @@
 import java.io.Serializable;
 
 /**
-* Clase que simula un cliente de CheemsMart.
-*
-* @author Pedro
-* @author Gaelinho
-* @author Andres
-* @version octubre 2022
-*
-*/
+ * Clase que simula un cliente de CheemsMart.
+ *
+ * @author Pedro
+ * @author Gaelinho
+ * @author Andres
+ * @version octubre 2022
+ *
+ */
 public class Cliente implements Serializable, InterfazCliente {
 
     /**

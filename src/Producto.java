@@ -36,8 +36,10 @@ public class Producto extends ComponenteCatalogo {
     *
     * @param nombre Nombre del producto
     * @param precio Precio del producto
+    * @param codigoBarras Codigo de barras del producto
+    * @param departamento Departamento al que pertenece el producto
     */
-    public Producto(String nombre, double precio){
+    public Producto(String nombre, double precio) {
         this.nombre = nombre;
         this.precio = precio;
     }

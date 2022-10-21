@@ -38,6 +38,12 @@ public class Catalogo {
     public Catalogo getInstance(){
         if (unicoCatalogo == null) {
             unicoCatalogo = new Catalogo();
+            Departamento electronica = new DepartamentoElectronica("Electrónica");
+            Departamento electrodomesticos = new DepartamentoElectrodomesticos("Electrodomésticos");
+            Departamento alimenticios = new DepartamentoAlimenticios("Alimenticios");
+            agregarDepartamento(electronica);
+            agregarDepartamento(electrodomesticos);
+            agregarDepartamento(alimenticios);
         }
         return unicoCatalogo;
     }
