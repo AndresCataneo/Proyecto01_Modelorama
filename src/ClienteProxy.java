@@ -10,7 +10,7 @@ import java.io.Serializable;
 * @version octubre 2022
 *
 */
-public class ClienteProxy implements Serializable, InterfazCliente {
+public class ClienteProxy implements Serializable, InterfazCliente, Observador {
 
     /**
     * Cliente real al que hace referencia el proxy
@@ -124,6 +124,14 @@ public class ClienteProxy implements Serializable, InterfazCliente {
     */
     public void actualizarPromocion(String promocion){
         this.promocion = promocion;
+    }
+
+    /**
+     * Metodo que actualiza las promociones de los productos de la tienda
+     * @param mensaje Mensaje que verán los clientes sobre la promoción
+     */
+    public void actualizar(String mensaje){
+        actualizarPromocion(mensaje);
     }
 
     /**

@@ -77,31 +77,69 @@ public class Cliente implements Serializable, InterfazCliente {
         this.id = id;
     }
 
+    /**
+     * Metodo para que el cliente inicie sesion y pueda ver y comprar productos de la tienda
+     * 
+     * @param nombreUsuario Nombre de usuario del cliente
+     * @param contrasena Contraseña del cliente
+     * @return boolean si el inicio de sesion fue exitoso, false si no lo fue
+     */
     public boolean inicioSesion(String nombreUsuario, String contrasena){
         return nombreUsuario.equals(this.nombreUsuario)
             && contrasena.equals(this.contrasena);
     }
 
+    /**
+     * Metodo para verificar los datos de la cuenta bancaria del cliente y pueda comprar productos
+     * 
+     * @param cuentaBanco Cuenta bancaria del cliente
+     * @return boolean si la compra fue exitosa, false si no lo fue
+     */
     public boolean compraSegura(String cuentaBanco){
         return cuentaBanco.equals(this.cuentaBanco);
     }
 
+    /**
+     * Metodo para obtener el nombre de usuario del cliente
+     * 
+     * @return nombre - Nombre de usuario del cliente
+     */
     public String getNombre(){
         return nombre;
     }
 
+    /**
+     * Metodo para obtener el telefono del cliente
+     * 
+     * @return telefono - Telefono del cliente
+     */
     public String getTelefono(){
         return telefono;
     }
 
+    /**
+     * Metodo para obtener la direccion del cliente
+     * 
+     * @return direccion - Direccion del cliente
+     */
     public String getDireccion(){
         return direccion;
     }
 
+    /**
+     * Metodo para obtener el pais de origen del cliente
+     * 
+     * @return pais - Pais de origen del cliente
+     */
     public String getPais(){
         return pais;
     }
 
+    /**
+     * Metodo para obtener el ID del cliente
+     * 
+     * @return id - ID del cliente
+     */
     public long getID(){
         return id;
     }
