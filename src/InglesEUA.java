@@ -61,5 +61,20 @@ public class InglesEUA implements Idioma{
         System.out.println("Thank you for your purchase!");
         System.out.println("See you soon!");
     }
+
+    /**
+     * Despliega el mensaje sobre si hay un producto en ingles de los Estados Unidos
+     * 
+     * @param hayProducto Booleano que indica si hay productos en el inventario
+     * @param precio - Precio del producto
+     */
+    @Override
+    public void hayProducto(boolean hayProducto, double precio) {
+        if(hayProducto){
+            System.out.println("The price is: " + precio);
+        }else{
+            System.out.println("You havn't selected any product");
+        }
+    }
     
 }

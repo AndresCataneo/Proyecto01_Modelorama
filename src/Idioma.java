@@ -42,4 +42,12 @@ public interface Idioma {
      * Despedida en el idioma del país
      */
     public void despedirse();
+
+    /**
+     * Despliega el mensaje sobre si hay productos en el inventario
+     * 
+     * @param hayProducto Booleano que indica si hay productos en el inventario
+     * @param precio - Precio del producto
+     */
+    public void hayProducto(boolean hayProducto, double precio);
 }

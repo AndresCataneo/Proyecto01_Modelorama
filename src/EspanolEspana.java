@@ -1,4 +1,3 @@
-import java.lang.annotation.IncompleteAnnotationException;
 import java.util.ArrayList;
 /**
  * Clase que simula una tienda de España.
@@ -60,5 +59,21 @@ public class EspanolEspana implements Idioma{
     public void despedirse(){
         System.out.println("Gracias por su compra!");
     }
+
+    /**
+     * Despliega el mensaje sobre si hay productos en el inventario
+     * 
+     * @param hayProducto Booleano que indica si hay productos en el inventario
+     * @param precio - Precio del producto
+     */
+    @Override
+    public void hayProducto(boolean hayProducto, double precio){
+        if(hayProducto){
+            System.out.println("El producto cuesta " + precio);
+        }else{
+            System.out.println("Lo sentimos, no hay productos en el inventario");
+        }
+    }
+          
     
 }

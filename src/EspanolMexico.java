@@ -60,5 +60,20 @@ public class EspanolMexico implements Idioma{
     public void despedirse(){
         System.out.println("¡Hasta luego!");
     }
+
+    /**
+     * Despliega el mensaje sobre si hay productos en el inventario
+     * 
+     * @param hayProducto Booleano que indica si hay productos en el inventario
+     * @param precio - Precio del producto
+     */
+    @Override
+    public void hayProducto(boolean hayProducto, double precio){
+        if(hayProducto){
+            System.out.println("El precio es de $" + precio);
+        }else{
+            System.out.println("Lo siento, no ha seleccionado algun producto");
+        }
+    }
     
 }
