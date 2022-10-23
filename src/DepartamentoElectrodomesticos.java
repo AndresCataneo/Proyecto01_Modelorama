@@ -10,11 +10,9 @@ public class DepartamentoElectrodomesticos extends Departamento{
 
     /**
      * Constructor de un departamento de electrodomesticos
-     *
-     * @param nombre Nombre del departamento
      */
-    public DepartamentoElectrodomesticos(String nombre) {
-        super(nombre);
+    public DepartamentoElectrodomesticos() {
+        super("Electrodomésticos");
         agregarProducto();
     }
 

@@ -3,7 +3,7 @@ import java.net.*;
 import java.io.*;
 import java.util.Scanner;
 
-public class Main {
+public class App {
 
     public static void main(String[] args) {
         if ("servidor".equals(args[0])) {
@@ -59,9 +59,9 @@ public class Main {
                     t.catalogo();
                 break;
                 case 2:
-                    t.catalogo();
                     int menuCompra;
                     do {
+                        t.catalogo();
                         t.menuCompra();
                         menuCompra = scn.nextInt();
                         switch (menuCompra) {
@@ -82,7 +82,7 @@ public class Main {
                 case 0:
                     break;
                 default:
-                    System.out.println("Invalido");
+                    t.opcionInvalida();
                     break;
             }
         } while (menuInicial != 0);

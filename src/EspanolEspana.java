@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 /**
  * Clase que simula una tienda de España.
- * 
+ *
  * @author Pedro
  * @author Gaelinho
  * @author Andres
@@ -22,7 +22,10 @@ public class EspanolEspana implements Idioma{
      */
     @Override
     public void menuInicial(){
-        System.out.println("Tenemos muchos productos para ti!");
+        System.out.println("¡Tenemos muchos productos para ti!\n" +
+                            "1. Ver el catalogo\n" +
+                            "2. Comprar algo\n" +
+                            "0. Salir de la tienda");
     }
 
     /**
@@ -30,18 +33,9 @@ public class EspanolEspana implements Idioma{
      */
     @Override
     public void menuCompra(){
-        System.out.println("Que le gustaría comprar chaval?");
-    }
-
-    /**
-     * Despliega el ticket de compra en español de España
-     */
-    @Override
-    public void ticketCompra(ArrayList<Producto> listaProductos){
-        System.out.println("Su ticket es:");
-        for(Producto producto : listaProductos){
-            System.out.println(producto.informacion());
-        }
+        System.out.println("1. Agregar al carrito\n" +
+                            "2. Pagar ya\n" +
+                            "0. Cancelar compra");
     }
 
     /**
@@ -60,20 +54,9 @@ public class EspanolEspana implements Idioma{
         System.out.println("Gracias por su compra!");
     }
 
-    /**
-     * Despliega el mensaje sobre si hay productos en el inventario
-     * 
-     * @param hayProducto Booleano que indica si hay productos en el inventario
-     * @param precio - Precio del producto
-     */
     @Override
-    public void hayProducto(boolean hayProducto, double precio){
-        if(hayProducto){
-            System.out.println("El producto cuesta " + precio);
-        }else{
-            System.out.println("Lo sentimos, no hay productos en el inventario");
-        }
+    public void opcionInvalida(){
+        System.out.println("Opción inválida chaval");
     }
-          
-    
+
 }

@@ -16,7 +16,7 @@ public class Servidor {
     /**
     * Booleano que indica si el servidor esta en linea
     */
-    private boolean enLinea = true;
+    private boolean enLinea;
 
     /**
     * Lista de clientes de la tienda
@@ -27,6 +27,7 @@ public class Servidor {
     * Constructor del servidor
     */
     public Servidor(){
+        enLinea = true;
         listaClientes.add(new Cliente("Gaelinho", "12345", "Gael Garcia", "5519032326", "N1 101", "GAG0210", "Mexico", 1));
     }
 

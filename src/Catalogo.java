@@ -27,9 +27,9 @@ public class Catalogo {
     * Constructor del catalogo
     */
     private Catalogo(){
-        Departamento alimenticios = new DepartamentoAlimenticios("Alimenticios");
-        Departamento electrodomesticos = new DepartamentoElectrodomesticos("Electrodomésticos");
-        Departamento electronica = new DepartamentoElectronica("Electrónica");
+        Departamento alimenticios = new DepartamentoAlimenticios();
+        Departamento electrodomesticos = new DepartamentoElectrodomesticos();
+        Departamento electronica = new DepartamentoElectronica();
         agregarDepartamento(alimenticios);
         agregarDepartamento(electrodomesticos);
         agregarDepartamento(electronica);

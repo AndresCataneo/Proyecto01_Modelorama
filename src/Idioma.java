@@ -27,13 +27,6 @@ public interface Idioma {
     public void menuCompra();
 
     /**
-     * Despliega el ticket de compra
-     * 
-     * @param listaProductos Lista de productos comprados
-     */
-    public void ticketCompra(ArrayList<Producto> listaProductos);
-
-    /**
      * Despliega la fecha de entrega de los productos
      */
     public void fechaEntrega();
@@ -44,10 +37,8 @@ public interface Idioma {
     public void despedirse();
 
     /**
-     * Despliega el mensaje sobre si hay productos en el inventario
-     * 
-     * @param hayProducto Booleano que indica si hay productos en el inventario
-     * @param precio - Precio del producto
-     */
-    public void hayProducto(boolean hayProducto, double precio);
+    * Mensaje de error al seleccionar una opcion
+    */
+    public void opcionInvalida();
+
 }

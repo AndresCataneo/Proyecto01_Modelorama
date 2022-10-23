@@ -10,11 +10,9 @@ public class DepartamentoAlimenticios extends Departamento{
 
     /**
      * Constructor de un departamento de alimenticios
-     *
-     * @param nombre Nombre del departamento
      */
-    public DepartamentoAlimenticios(String nombre) {
-        super(nombre);
+    public DepartamentoAlimenticios() {
+        super("Alimenticios");
         agregarProducto();
     }
 

@@ -60,6 +60,7 @@ public class Tienda implements Sujeto{
         descargarClientes();
         generaOferta();
         ofertaPaises();
+        notificarObservador();
     }
 
     /**
@@ -67,6 +68,9 @@ public class Tienda implements Sujeto{
      */
     public void saludar(){
         idioma.saludar();
+        if (!"".equals(sesion.getPromocion())) {
+            System.out.println(sesion.getPromocion() + "\n");
+        }
     }
 
     /**
@@ -113,7 +117,7 @@ public class Tienda implements Sujeto{
         Producto producto = sesion.getCarrito();
         if (producto != null) {
             compraSegura();
-            //ticketCompra();
+            ticketCompra();
             sesion.vaciarCarrito();
         }
     }
@@ -127,17 +131,12 @@ public class Tienda implements Sujeto{
         System.out.println("*****COMPRA SEGURA*****");
         System.out.println("Para su seguridad necesitamos que ingrese " +
                             "su número de cuenta bancaria");
-        System.out.println("Solo tienes dos oportunidades");
+        System.out.println("Solo tienes una oportunidad");
         String numCuentaBanco = scn.nextLine();
         if (!sesion.compraSegura(numCuentaBanco)) {
-            System.out.println("El número de cuenta bancaria no coincidio");
-            System.out.println("Vuelve a intentarlo, es tu último intento");
-            numCuentaBanco = scn.nextLine();
-            if (!sesion.compraSegura(numCuentaBanco)) {
-                System.out.println("Eso es todo. No te apures, la " +
-                                    "policía ya esta en camino");
-                System.exit(1);
-            }
+            System.out.println("Eso es todo. No te apures, la " +
+            "policía ya esta en camino");
+            System.exit(1);
         }
         System.out.println("Transacción exitosa");
     }
@@ -147,8 +146,22 @@ public class Tienda implements Sujeto{
      *
      * @param listaProductos Lista de productos que el cliente ha comprado
      */
-    public void ticketCompra(ArrayList<Producto> listaProductos){
-        idioma.ticketCompra(listaProductos);
+    public void ticketCompra(){
+        Producto comprado = sesion.getCarrito();
+        System.out.println("******TICKET******\n");
+        System.out.println(comprado.getNombre() + "\t-\t$" + comprado.getPrecio());
+        System.out.println("Subtotal: $" + comprado.getPrecio());
+        if ("Mexico".equals(sesion.getPais()) && ofertaMexico
+        && "Alimenticios".equals(comprado.getNombreDepartamento())) {
+            System.out.println("Descuento: " + oferta + "%");
+        } else if ("Espana".equals(sesion.getPais()) && ofertaEspana
+        && "Electrodomésticos".equals(comprado.getNombreDepartamento())) {
+            System.out.println("Descuento: " + oferta + "%");
+        } else if ("EUA".equals(sesion.getPais()) && ofertaEUA
+        && "Electrónica".equals(comprado.getNombreDepartamento())) {
+            System.out.println("OFF: " + oferta + "%");
+        }
+        System.out.println("Total: $" + (comprado.getPrecio() - (comprado.getPrecio() * getOferta())));
     }
 
     public void getFechaCompra(){
@@ -160,6 +173,13 @@ public class Tienda implements Sujeto{
      */
     public void despedirse(){
         idioma.despedirse();
+    }
+
+    /**
+    * Mensaje de error al seleccionar una opcion
+    */
+    public void opcionInvalida(){
+        idioma.opcionInvalida();
     }
 
     /**
@@ -187,8 +207,19 @@ public class Tienda implements Sujeto{
      *
      * @param oferta Oferta que se va a notificar
      */
-    public void notificarObservador(String mensaje){
+    public void notificarObservador(){
         for(ClienteProxy cliente : listaClientes){
+            String mensaje = "";
+            if ("Mexico".equals(cliente.getPais()) && ofertaMexico) {
+                mensaje = "Tienes " + oferta + "% de descuento ";
+                mensaje += "en el departamento de alimenticios";
+            } else if ("Espana".equals(cliente.getPais()) && ofertaEspana) {
+                mensaje = "Tienes " + oferta + "% de promo ";
+                mensaje += "en el departamento de electrodomésticos";
+            } else if ("EUA".equals(cliente.getPais()) && ofertaEUA) {
+                mensaje = "You have " + oferta + "% OFF ";
+                mensaje += "in electronic department";
+            }
             cliente.actualizar(mensaje);
         }
     }
@@ -269,15 +300,15 @@ public class Tienda implements Sujeto{
     *
     * @return Oferta aplicable dependiendo del cliente y producto a comprar
     */
-    private int getOferta(){
+    private double getOferta(){
         Producto aComprar = sesion.getCarrito();
         String depaProducto = aComprar.getNombreDepartamento();
         if ("Mexico".equals(sesion.getPais()) && ofertaMexico && "".equals(depaProducto)) {
-            return oferta;
+            return (double) oferta / 100;
         } else if ("EUA".equals(sesion.getPais()) && ofertaEUA && "".equals(depaProducto)) {
-            return oferta;
+            return (double) oferta / 100;
         } else if ("España".equals(sesion.getPais()) && ofertaEspana && "".equals(depaProducto)) {
-            return oferta;
+            return (double) oferta / 100;
         }
         return 0;
     }
