@@ -101,7 +101,6 @@ public class Catalogo {
                 }
             }
         }
-        System.out.println("Producto no encontrado");
         return null;
     }
 

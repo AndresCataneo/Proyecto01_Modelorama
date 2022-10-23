@@ -66,15 +66,16 @@ public class App {
                         menuCompra = scn.nextInt();
                         switch (menuCompra) {
                             case 1:
-                                int codigoProducto = scn.nextInt();
-                                t.agregarAlCarrito(codigoProducto);
+                                t.agregarAlCarrito();
                                 break;
                             case 2:
                                 t.pagar();
+                                menuCompra = 0;
                                 break;
                             case 0:
                                 break;
                             default:
+                                t.opcionInvalida();
                                 break;
                         }
                     } while (menuCompra != 0);
@@ -86,6 +87,7 @@ public class App {
                     break;
             }
         } while (menuInicial != 0);
+        t.despedirse();
         t.cerrarServidor();
 
     }

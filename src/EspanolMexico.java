@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * Clase que simula una tienda de México
  *
@@ -36,6 +37,40 @@ public class EspanolMexico implements Idioma{
         System.out.println("1. Agregar al carrito\n" +
                             "2. Pagar ya\n" +
                             "0. Cancelar compra");
+    }
+
+    @Override
+    public void agregarAlCarrito(ClienteProxy sesion){
+        if (sesion.getCarrito() != null) {
+            System.out.println("UN PRODUCTO A LA VEZ. Ya hay un producto en el carrito.");
+            return ;
+        }
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Ingresa el código de barras del producto");
+        int codigoBarras = scn.nextInt();
+        Catalogo catalogo = Catalogo.getInstance();
+        Producto aComprar = catalogo.getProducto(codigoBarras);
+        if (aComprar == null) {
+            System.out.println("Producto no encontrado");
+            return ;
+        }
+        sesion.agregarAlCarrito(aComprar);
+    }
+
+    @Override
+    public void compraSegura(ClienteProxy sesion){
+        Scanner scn = new Scanner(System.in);
+        System.out.println("*****COMPRA SEGURA*****");
+        System.out.println("Para su seguridad necesitamos que ingrese " +
+                            "su número de cuenta bancaria");
+        System.out.println("Solo tienes una oportunidad");
+        String numCuentaBanco = scn.nextLine();
+        if (!sesion.compraSegura(numCuentaBanco)) {
+            System.out.println("Eso es todo. No te apures, la " +
+            "policía ya esta en camino");
+            System.exit(1);
+        }
+        System.out.println("Transacción exitosa");
     }
 
     /**

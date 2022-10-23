@@ -97,17 +97,9 @@ public class Tienda implements Sujeto{
 
     /**
     * Agrega un producto al carrito del cliente a partir de su codigo de barras
-    *
-    * @param codigoBarras Codigo de barras del producto a agregar
     */
-    public void agregarAlCarrito(int codigoBarras){
-        if (sesion.getCarrito() != null) {
-            System.out.println("UN PRODUCTO A LA VEZ. Ya hay un producto en el carrito.");
-            return ;
-        }
-        Catalogo catalogo = Catalogo.getInstance();
-        Producto aComprar = catalogo.getProducto(codigoBarras);
-        sesion.agregarAlCarrito(aComprar);
+    public void agregarAlCarrito(){
+        idioma.agregarAlCarrito(sesion);
     }
 
     /**
@@ -116,29 +108,10 @@ public class Tienda implements Sujeto{
     public void pagar(){
         Producto producto = sesion.getCarrito();
         if (producto != null) {
-            compraSegura();
+            idioma.compraSegura(sesion);
             ticketCompra();
             sesion.vaciarCarrito();
         }
-    }
-
-    /**
-    * Pantalla de compra segura para verificar los datos
-    * de la cuenta bancaria del cliente
-    */
-    private void compraSegura(){
-        Scanner scn = new Scanner(System.in);
-        System.out.println("*****COMPRA SEGURA*****");
-        System.out.println("Para su seguridad necesitamos que ingrese " +
-                            "su número de cuenta bancaria");
-        System.out.println("Solo tienes una oportunidad");
-        String numCuentaBanco = scn.nextLine();
-        if (!sesion.compraSegura(numCuentaBanco)) {
-            System.out.println("Eso es todo. No te apures, la " +
-            "policía ya esta en camino");
-            System.exit(1);
-        }
-        System.out.println("Transacción exitosa");
     }
 
     /**
@@ -151,17 +124,13 @@ public class Tienda implements Sujeto{
         System.out.println("******TICKET******\n");
         System.out.println(comprado.getNombre() + "\t-\t$" + comprado.getPrecio());
         System.out.println("Subtotal: $" + comprado.getPrecio());
-        if ("Mexico".equals(sesion.getPais()) && ofertaMexico
-        && "Alimenticios".equals(comprado.getNombreDepartamento())) {
-            System.out.println("Descuento: " + oferta + "%");
-        } else if ("Espana".equals(sesion.getPais()) && ofertaEspana
-        && "Electrodomésticos".equals(comprado.getNombreDepartamento())) {
-            System.out.println("Descuento: " + oferta + "%");
-        } else if ("EUA".equals(sesion.getPais()) && ofertaEUA
-        && "Electrónica".equals(comprado.getNombreDepartamento())) {
-            System.out.println("OFF: " + oferta + "%");
+        if (aplicaOferta()) {
+            System.out.println(oferta + "% OFF");
+            System.out.println("Total: $" + (comprado.getPrecio() - ((double) oferta / 100) * comprado.getPrecio()));
+        } else {
+            System.out.println("Total: $" + comprado.getPrecio());
         }
-        System.out.println("Total: $" + (comprado.getPrecio() - (comprado.getPrecio() * getOferta())));
+        getFechaCompra();
     }
 
     public void getFechaCompra(){
@@ -295,25 +264,6 @@ public class Tienda implements Sujeto{
     }
 
     /**
-    * Devuelve la oferta que aplica para el usuario y producto
-    * que este esta comprando
-    *
-    * @return Oferta aplicable dependiendo del cliente y producto a comprar
-    */
-    private double getOferta(){
-        Producto aComprar = sesion.getCarrito();
-        String depaProducto = aComprar.getNombreDepartamento();
-        if ("Mexico".equals(sesion.getPais()) && ofertaMexico && "".equals(depaProducto)) {
-            return (double) oferta / 100;
-        } else if ("EUA".equals(sesion.getPais()) && ofertaEUA && "".equals(depaProducto)) {
-            return (double) oferta / 100;
-        } else if ("España".equals(sesion.getPais()) && ofertaEspana && "".equals(depaProducto)) {
-            return (double) oferta / 100;
-        }
-        return 0;
-    }
-
-    /**
     * Genera un descuento para aplicar a los departamentos
     *
     * @return Entero que representa un descuento en porcentaje
@@ -372,6 +322,29 @@ public class Tienda implements Sujeto{
             default:
                 break;
         }
+    }
+
+    /**
+    * Indica si aplica la oferta
+    *
+    * @return   true    -   si aplica la oferta
+    *           false   -   si no aplica
+    */
+    private boolean aplicaOferta(){
+        Producto comprado = sesion.getCarrito();
+        if (comprado == null) {
+            return false;
+        } else if("Mexico".equals(sesion.getPais()) && ofertaMexico
+        && "Alimenticios".equals(comprado.getNombreDepartamento())) {
+            return true;
+        } else if ("Espana".equals(sesion.getPais()) && ofertaEspana
+        && "Electrodomésticos".equals(comprado.getNombreDepartamento())) {
+            return true;
+        } else if ("EUA".equals(sesion.getPais()) && ofertaEUA
+        && "Electrónica".equals(comprado.getNombreDepartamento())) {
+            return true;
+        }
+        return false;
     }
 
 }

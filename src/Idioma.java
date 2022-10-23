@@ -27,6 +27,20 @@ public interface Idioma {
     public void menuCompra();
 
     /**
+    * Agrega un producto al carrito del cliente a partir de su codigo de barras
+    *
+    * @parma sesion Cliente que agregara algo a su carrito
+    */
+    public void agregarAlCarrito(ClienteProxy sesion);
+
+    /**
+    * Pantalla de compra segura
+    *
+    * @param sesion Cliente que busca pagar
+    */
+    public void compraSegura(ClienteProxy sesion);
+
+    /**
      * Despliega la fecha de entrega de los productos
      */
     public void fechaEntrega();

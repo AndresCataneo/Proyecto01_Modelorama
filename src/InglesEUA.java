@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Scanner;
 /**
  * Clase que simula una tienda de los Estados Unidos.
  *
@@ -36,6 +36,40 @@ public class InglesEUA implements Idioma{
         System.out.println("1. Add to cart\n" +
                             "2. Pay now\n" +
                             "0. Cancel purchase");
+    }
+
+    @Override
+    public void agregarAlCarrito(ClienteProxy sesion){
+        if (sesion.getCarrito() != null) {
+            System.out.println("ONE BY ONE. There is a product already in your cart.");
+            return ;
+        }
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Write de product barcode:");
+        int codigoBarras = scn.nextInt();
+        Catalogo catalogo = Catalogo.getInstance();
+        Producto aComprar = catalogo.getProducto(codigoBarras);
+        if (aComprar == null) {
+            System.out.println("Product not found");
+            return ;
+        }
+        sesion.agregarAlCarrito(aComprar);
+    }
+
+    @Override
+    public void compraSegura(ClienteProxy sesion){
+        Scanner scn = new Scanner(System.in);
+        System.out.println("*****SAFETY PURCHASR*****");
+        System.out.println("For your safety, we need you to write " +
+                            "your bank account number");
+        System.out.println("You have only one try");
+        String numCuentaBanco = scn.nextLine();
+        if (!sesion.compraSegura(numCuentaBanco)) {
+            System.out.println("That's all. " +
+            "Police is coming");
+            System.exit(1);
+        }
+        System.out.println("Purcharse successful");
     }
 
     /**
