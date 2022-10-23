@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 /**
  * Clase que simula una tienda de México
- * 
+ *
  * @author Pedro
  * @author Gaelinho
  * @author Andres
@@ -22,7 +22,10 @@ public class EspanolMexico implements Idioma{
      */
     @Override
     public void menuInicial(){
-        System.out.println("¡Tenemos muchos productos para ti!");
+        System.out.println("¡Tenemos muchos productos para ti!\n" +
+                            "1. Ver el catalogo\n" +
+                            "2. Comprar algo\n" +
+                            "0. Salir de la tienda");
     }
 
     /**
@@ -30,12 +33,14 @@ public class EspanolMexico implements Idioma{
      */
     @Override
     public void menuCompra(){
-        System.out.println("¿Qué quieres comprar carnal?");
+        System.out.println("1. Agregar al carrito\n" +
+                            "2. Pagar ya\n" +
+                            "0. Cancelar compra");
     }
 
     /**
      * Despliega el ticket de compra en español de México
-     * 
+     *
      */
     @Override
     public void ticketCompra(ArrayList<Producto> listaProductos){
@@ -63,7 +68,7 @@ public class EspanolMexico implements Idioma{
 
     /**
      * Despliega el mensaje sobre si hay productos en el inventario
-     * 
+     *
      * @param hayProducto Booleano que indica si hay productos en el inventario
      * @param precio - Precio del producto
      */
@@ -75,5 +80,5 @@ public class EspanolMexico implements Idioma{
             System.out.println("Lo siento, no ha seleccionado algun producto");
         }
     }
-    
+
 }

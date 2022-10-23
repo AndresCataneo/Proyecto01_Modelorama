@@ -14,11 +14,6 @@ import java.util.Iterator;
 public class Departamento extends ComponenteCatalogo {
 
     /**
-    * Codigo de barras del departamento
-    */
-    private int codigoBarras;
-
-    /**
     * Nombre del departamento
     */
     private String nombre;
@@ -38,24 +33,6 @@ public class Departamento extends ComponenteCatalogo {
     }
 
     /**
-    * Regresa el codigo de barras del producto
-    *
-    * @return Entero que representa el codigo de barras del producto
-    */
-    public int getCodigoBarras(){
-        return codigoBarras;
-    }
-
-    /**
-    * Establece el codigo de barras del producto
-    *
-    * @param codigoBarras Entero que representa el nuevo codigo de barras
-    */
-    public void setCodigoBarras(int codigoBarras){
-        this.codigoBarras = codigoBarras;
-    }
-
-    /**
     * Regresa el nombre del departamento
     *
     * @return Cadena que representa el nombre del departamento
@@ -68,14 +45,12 @@ public class Departamento extends ComponenteCatalogo {
     public void agregarProducto(Producto producto){
         listaProductos.add(producto);
         producto.setDepartamento(this);
-        producto.setCodigoBarras(getCodigoBarras() + listaProductos.size());
     }
 
     @Override
     public String informacion(){
         Iterator iterador = getIterador();
-        String informacion = "*****" + getNombre() + "*****";
-        informacion += "\n";
+        String informacion = "*****" + getNombre() + "*****\n";
         while (iterador.hasNext()) {
             Producto p = (Producto) iterador.next();
             informacion += p.informacion() + "\n";

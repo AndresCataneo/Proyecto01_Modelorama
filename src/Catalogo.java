@@ -16,18 +16,23 @@ public class Catalogo {
     /**
     * Lista de los departamentos del catalogo.
     */
-    private ArrayList<Departamento> listaDepartamentos = new ArrayList<Departamento>();
+    private static ArrayList<Departamento> listaDepartamentos = new ArrayList<Departamento>();
 
     /**
     * Unico catalogo
     */
-    private Catalogo unicoCatalogo;
+    private static Catalogo unicoCatalogo;
 
     /**
     * Constructor del catalogo
     */
     private Catalogo(){
-
+        Departamento alimenticios = new DepartamentoAlimenticios("Alimenticios");
+        Departamento electrodomesticos = new DepartamentoElectrodomesticos("Electrodomésticos");
+        Departamento electronica = new DepartamentoElectronica("Electrónica");
+        agregarDepartamento(alimenticios);
+        agregarDepartamento(electrodomesticos);
+        agregarDepartamento(electronica);
     }
 
     /**
@@ -35,15 +40,9 @@ public class Catalogo {
     *
     * @return Unico catalogo
     */
-    public Catalogo getInstance(){
+    public static Catalogo getInstance(){
         if (unicoCatalogo == null) {
             unicoCatalogo = new Catalogo();
-            Departamento electronica = new DepartamentoElectronica("Electrónica");
-            Departamento electrodomesticos = new DepartamentoElectrodomesticos("Electrodomésticos");
-            Departamento alimenticios = new DepartamentoAlimenticios("Alimenticios");
-            agregarDepartamento(electronica);
-            agregarDepartamento(electrodomesticos);
-            agregarDepartamento(alimenticios);
         }
         return unicoCatalogo;
     }
@@ -68,9 +67,8 @@ public class Catalogo {
     *
     * @param departamento Departamento a agregar
     */
-    private void agregarDepartamento(Departamento departamento){
+    private static void agregarDepartamento(Departamento departamento){
         listaDepartamentos.add(departamento);
-        departamento.setCodigoBarras(listaDepartamentos.size() * 1000);
     }
 
     /**
@@ -92,11 +90,15 @@ public class Catalogo {
     * @return Producto deseado o null en caso de no existir
     */
     public Producto getProducto(int codigoBarras){
-        Iterator iterador = getIterador();
-        while (iterador.hasNext()) {
-            Producto p = (Producto) iterador.next();
-            if (codigoBarras == p.getCodigoBarras()) {
-                return p;
+        Iterator iteradorDepartamentos = getIterador();
+        while (iteradorDepartamentos.hasNext()) {
+            Departamento d = (Departamento) iteradorDepartamentos.next();
+            Iterator iteradorProductos = d.getIterador();
+            while (iteradorProductos.hasNext()) {
+                Producto p = (Producto) iteradorProductos.next();
+                if (codigoBarras == p.getCodigoBarras()) {
+                    return p;
+                }
             }
         }
         System.out.println("Producto no encontrado");
