@@ -29,7 +29,8 @@ public class Servidor {
     public Servidor(){
         enLinea = true;
         listaClientes.add(new Cliente("Gaelinho", "12345", "Gael Garcia", "5519032326", "N1 101", "GAG0210", "Mexico", 1));
-        listaClientes.add(new Cliente("X", "321", "Unknown", "5519032327", "N1 40", "XRX", "EUA", 2));
+        listaClientes.add(new Cliente("RymerVS", "321", "Ryan", "5519032327", "N1 40", "XRX", "EUA", 2));
+        listaClientes.add(new Cliente("JosephEvil", "123", "Jose", "5519032328", "N1 50", "JOS", "España", 3));
     }
 
     /**

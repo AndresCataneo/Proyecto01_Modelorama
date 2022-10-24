@@ -42,7 +42,7 @@ public class EspanolMexico implements Idioma{
     @Override
     public void agregarAlCarrito(ClienteProxy sesion){
         if (sesion.getCarrito() != null) {
-            System.out.println("UN PRODUCTO A LA VEZ. Ya hay un producto en el carrito.");
+            System.out.println("Carnalito... UN PRODUCTO A LA VEZ. Ya hay un producto en el carrito.");
             return ;
         }
         Scanner scn = new Scanner(System.in);

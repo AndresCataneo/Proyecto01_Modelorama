@@ -2,7 +2,16 @@
 import java.net.*;
 import java.io.*;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
+/**
+ * Clae que simula la interaccion del usuario en una tienda
+ * 
+ * @author Pedro
+ * @author Gaelinho
+ * @author Andres
+ * @version octubre 2022
+ */
 public class App {
 
     public static void main(String[] args) {
@@ -13,6 +22,9 @@ public class App {
         }
     }
 
+    /**
+     * Inicia el servidor de la tienda
+     */
     public static void startServidor(){
         try {
             System.out.println("Iniciando servidor");
@@ -38,6 +50,9 @@ public class App {
         }
     }
 
+    /**
+     * Metodo para que la tienda se conecte al servidor
+     */
     public static void startTienda(){
         Tienda t = new Tienda();
 
@@ -51,9 +66,18 @@ public class App {
         }
         t.saludar();
         int menuInicial;
-        do { // En los menus falta colocar los try catch para que no falle jeje
+        do { 
             t.menuInicial();
-            menuInicial = scn.nextInt();
+            while(true){
+                try{
+                    menuInicial = scn.nextInt();
+                    break;
+                }catch(InputMismatchException e){
+                    t.opcionInvalida();
+                    t.menuInicial();
+                    scn.nextLine();
+                }
+            }
             switch (menuInicial) {
                 case 1:
                     t.catalogo();
@@ -63,7 +87,15 @@ public class App {
                     do {
                         t.catalogo();
                         t.menuCompra();
-                        menuCompra = scn.nextInt();
+                        while(true){
+                            try{
+                                menuCompra = scn.nextInt();
+                                break;
+                            }catch(InputMismatchException e){
+                                t.opcionInvalida();
+                                scn.nextLine();
+                            }
+                        }
                         switch (menuCompra) {
                             case 1:
                                 t.agregarAlCarrito();
