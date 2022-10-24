@@ -102,9 +102,10 @@ public class App {
                                 break;
                             case 2:
                                 t.pagar();
-                                menuCompra = 0;
+                                //menuCompra = 0;
                                 break;
                             case 0:
+                                t.borrarCarrito();
                                 break;
                             default:
                                 t.opcionInvalida();

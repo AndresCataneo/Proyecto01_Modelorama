@@ -111,6 +111,16 @@ public class Tienda implements Sujeto{
             idioma.compraSegura(sesion);
             ticketCompra();
             sesion.vaciarCarrito();
+        }else{
+            if("Mexico".equals(sesion.getPais())){
+                System.out.println("Padrino, no has agregado nada a tu carrito"+
+                ", seriedad porfavor");
+            }else if("Espana".equals(sesion.getPais())){
+                System.out.println("Pero por el Real madrid, y sus 14 copas, no "+
+                "has comprado nada aun, chaval te reviento");
+            }else if("EUA".equals(sesion.getPais())){
+                System.out.println("Oh man, you are stupid bro, you ain't bought nothing");
+            }
         }
     }
 
@@ -345,6 +355,27 @@ public class Tienda implements Sujeto{
             return true;
         }
         return false;
+    }
+
+    /**
+     * Método que borrar el carrito del usuario en caso de cancelar 
+     * la compra
+     */
+    public void borrarCarrito(){
+        Producto aBorrar = sesion.getCarrito();
+        if(aBorrar != null){
+            if("Mexico".equals(sesion.getPais())){
+                System.out.println("Padrino borraremos tu carrito");
+                sesion.vaciarCarrito();
+            }else if("Espana".equals(sesion.getPais())){
+                System.out.println("Chaval, mira que rapido va Alonso, ah tu carro lo borramos" 
+                +"por pesado");
+                sesion.vaciarCarrito();
+            }else if("EUA".equals(sesion.getPais())){
+                System.out.println("Eh man, are you try play with me?, get of here, i will delete your cart");
+                sesion.vaciarCarrito();
+            }
+        }
     }
 
 }
