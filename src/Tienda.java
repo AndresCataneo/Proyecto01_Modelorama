@@ -86,6 +86,7 @@ public class Tienda implements Sujeto{
     public void catalogo(){
         Catalogo catalogo = Catalogo.getInstance(); //provisional
         System.out.println(catalogo.informacion());
+        System.out.println("\n"+ sesion.getSaldo());
     }
 
     /**
@@ -112,15 +113,7 @@ public class Tienda implements Sujeto{
             ticketCompra();
             sesion.vaciarCarrito();
         }else{
-            if("Mexico".equals(sesion.getPais())){
-                System.out.println("Padrino, no has agregado nada a tu carrito"+
-                ", seriedad porfavor");
-            }else if("Espana".equals(sesion.getPais())){
-                System.out.println("Pero por el Real madrid, y sus 14 copas, no "+
-                "has comprado nada aun, chaval te reviento");
-            }else if("EUA".equals(sesion.getPais())){
-                System.out.println("Oh man, you are stupid bro, you ain't bought nothing");
-            }
+            idioma.mensajeAlerta(2);
         }
     }
 

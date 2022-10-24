@@ -94,4 +94,25 @@ public class EspanolMexico implements Idioma{
         System.out.println("Opción inválida carnal");
     }
 
+    @Override
+    public void mensajeAlerta(int opcion){
+        switch (opcion) {
+            case 1:
+                System.out.println("Carnal. No puedes comprar más de un producto a la vez");
+                break;
+            case 2:
+            System.out.println("Padrino, no has agregado nada a tu carrito, seriedad por favor");
+                break;
+            case 3:
+                System.out.println("Carnal. No puedes cancelar la compra si no tienes un producto en el carrito");
+                break;
+            case 4:
+                System.out.println("Carnal. No puedes comprar el procucto porque no tienes suficiente saldo");
+                break;
+            default:
+                break;
+        }
+
+    }
+
 }

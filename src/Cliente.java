@@ -48,6 +48,11 @@ public class Cliente implements Serializable, InterfazCliente {
     private String pais;
 
     /**
+     * Saldo de la cuenta del cliente
+     */
+    private double saldo;
+
+    /**
     * ID del cliente
     */
     private long id;
@@ -66,7 +71,7 @@ public class Cliente implements Serializable, InterfazCliente {
     */
     public Cliente(String nombreUsuario, String contrasena, String nombre,
                     String telefono, String direccion, String cuentaBanco,
-                    String pais, long id){
+                    String pais,double saldo, long id){
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
         this.nombre = nombre;
@@ -144,4 +149,21 @@ public class Cliente implements Serializable, InterfazCliente {
         return id;
     }
 
+    /**
+     * Metodo para obtener el saldo del cliente
+     * 
+     * @return saldo - Saldo del cliente
+     */
+    public double getSaldo(){
+        return saldo;
+    }
+
+    /**
+     * Metodo para cambiar el saldo del cliente
+     * 
+     * @return saldo - Saldo del cliente
+     */
+    public void setSaldo(double saldo){
+        this.saldo = saldo;
+    }
 }

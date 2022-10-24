@@ -94,4 +94,24 @@ public class InglesEUA implements Idioma{
         System.out.println("Not a valid option");
     }
 
+
+    @Override
+    public void mensajeAlerta(int opcion){
+        switch (opcion) {
+            case 1:
+                System.out.println("You can't add more than one product to your cart");
+                break;
+            case 2:
+                System.out.println("Oh man, you are stupid bro, you ain't bought nothing");
+                break;
+            case 3:
+                System.out.println("You can't cancel a purchase if you don't have a product in your cart");
+                break;
+            case 4:
+                System.out.println("You can't pay the product because you don't have enough money");
+                break;
+            default:
+                break;
+        }
+    }
 }

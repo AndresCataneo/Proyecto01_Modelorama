@@ -142,4 +142,22 @@ public class ClienteProxy implements Serializable, InterfazCliente, Observador {
     public String getPromocion(){
         return promocion;
     }
+
+    /**
+     * Metodo para obtener el saldo del cliente
+     * 
+     * @return saldo - Saldo del cliente
+     */
+    public double getSaldo(){
+        return clienteReal.getSaldo();
+    }
+
+    /**
+     * Metodo para cambiar el saldo del cliente
+     * 
+     * @return saldo - Saldo del cliente
+     */
+    public void setSaldo(double saldo){
+        clienteReal.setSaldo(saldo);
+    }
 }

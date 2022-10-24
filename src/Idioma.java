@@ -55,4 +55,10 @@ public interface Idioma {
     */
     public void opcionInvalida();
 
+    /**
+     * Metodo que enviará un mensaje al cliente para que entienda por que no se puede realizar la accion
+     * @param opcion
+     */
+    public void mensajeAlerta(int opcion);
+
 }

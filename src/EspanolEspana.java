@@ -93,4 +93,26 @@ public class EspanolEspana implements Idioma{
         System.out.println("Opción inválida chaval");
     }
 
+    @Override
+    public void mensajeAlerta(int opcion){
+
+        switch (opcion) {
+            case 1:
+                System.out.println("Chaval. No puedes comprar más de un producto a la vez");
+                break;
+            case 2:
+            System.out.println("Pero por el Real madrid, y sus 14 copas, no has comprado nada aun, chaval te reviento");
+                break;
+            case 3:
+                System.out.println("Ostiaaa tio, haber. No puedes cancelar la compra si no tienes un producto en el carrito");
+                break;
+            case 4:
+                System.out.println("Chaval. No puedes comprar el procucto porque no tienes suficiente saldo");
+                break;
+            default:
+                break;
+        }
+    }
+
+    
 }
