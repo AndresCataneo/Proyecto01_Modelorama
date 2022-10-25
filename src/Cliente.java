@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @version octubre 2022
  *
  */
-public class Cliente implements Serializable, InterfazCliente {
+public class Cliente implements Serializable, InterfazCliente, Observador {
 
     /**
     * Nombre de usuario del cliente
@@ -58,6 +58,11 @@ public class Cliente implements Serializable, InterfazCliente {
     private long id;
 
     /**
+    * Cadena con la promocion que puede aprovechar el cliente
+    */
+    private String promocion;
+
+    /**
     * Constructor de un cliente
     *
     * @param nombreUsuario Nombre de usuario del cliente
@@ -85,7 +90,7 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para que el cliente inicie sesion y pueda ver y comprar productos de la tienda
-     * 
+     *
      * @param nombreUsuario Nombre de usuario del cliente
      * @param contrasena Contraseña del cliente
      * @return boolean si el inicio de sesion fue exitoso, false si no lo fue
@@ -97,7 +102,7 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para verificar los datos de la cuenta bancaria del cliente y pueda comprar productos
-     * 
+     *
      * @param cuentaBanco Cuenta bancaria del cliente
      * @return boolean si la compra fue exitosa, false si no lo fue
      */
@@ -107,7 +112,7 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para obtener el nombre de usuario del cliente
-     * 
+     *
      * @return nombre - Nombre de usuario del cliente
      */
     public String getNombre(){
@@ -116,7 +121,7 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para obtener el telefono del cliente
-     * 
+     *
      * @return telefono - Telefono del cliente
      */
     public String getTelefono(){
@@ -125,7 +130,7 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para obtener la direccion del cliente
-     * 
+     *
      * @return direccion - Direccion del cliente
      */
     public String getDireccion(){
@@ -134,7 +139,7 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para obtener el pais de origen del cliente
-     * 
+     *
      * @return pais - Pais de origen del cliente
      */
     public String getPais(){
@@ -143,7 +148,7 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para obtener el ID del cliente
-     * 
+     *
      * @return id - ID del cliente
      */
     public long getID(){
@@ -152,7 +157,7 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para obtener el saldo del cliente
-     * 
+     *
      * @return saldo - Saldo del cliente
      */
     public double getSaldo(){
@@ -161,10 +166,33 @@ public class Cliente implements Serializable, InterfazCliente {
 
     /**
      * Metodo para cambiar el saldo del cliente
-     * 
+     *
      * @return saldo - Saldo del cliente
      */
     public void setSaldo(double saldo){
         this.saldo = saldo;
+    }
+
+    /**
+    * Devuelve la promocion que aplica para el cliente
+    *
+    * @return Cadena con la promocion dirigida al cliente
+    */
+    public String getPromocion(){
+        return promocion;
+    }
+
+    /**
+    *
+    */
+    public void actualizar(String mensaje){
+        actualizarPromocion(mensaje);
+    }
+
+    /**
+    *
+    */
+    public void actualizarPromocion(String mensaje){
+        promocion = mensaje;
     }
 }

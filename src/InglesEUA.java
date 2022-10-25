@@ -25,6 +25,7 @@ public class InglesEUA implements Idioma{
         System.out.println("We have a lot of products for you!\n" +
                             "1. See the catalog\n" +
                             "2. Buy something\n" +
+                            "3. Sign off\n" +
                             "0. Exit store");
     }
 

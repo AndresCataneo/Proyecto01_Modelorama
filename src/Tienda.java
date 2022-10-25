@@ -23,7 +23,7 @@ public class Tienda implements Sujeto{
     /**
     * Lista de los clientes
     */
-    ArrayList<ClienteProxy> listaClientes;
+    ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 
     /**
     * Cliente con sesion iniciada en la tienda
@@ -57,7 +57,9 @@ public class Tienda implements Sujeto{
      *
      */
     public Tienda(){
-        descargarClientes();
+        listaClientes.add(new Cliente("Gaelinho", "12345", "Gael Garcia", "5519032326", "N1 101", "GAG0210","Mexico", 10000, 1));
+        listaClientes.add(new Cliente("RymerVS", "321", "Ryan", "5519032327", "N1 40", "XRX", "EUA", 1000,2));
+        listaClientes.add(new Cliente("JosephEvil", "123", "Jose", "5519032328", "N1 50", "JOS", "España",3000, 3));
         generaOferta();
         ofertaPaises();
         notificarObservador();
@@ -86,7 +88,7 @@ public class Tienda implements Sujeto{
     public void catalogo(){
         Catalogo catalogo = Catalogo.getInstance(); //provisional
         System.out.println(catalogo.informacion());
-        System.out.println("\n"+ sesion.getSaldo());
+        System.out.println("$" + sesion.getSaldo());
     }
 
     /**
@@ -122,8 +124,6 @@ public class Tienda implements Sujeto{
 
     /**
      * Metodo que le muestra al cliente el ticket de compra en su respectivo idioma
-     *
-     * @param listaProductos Lista de productos que el cliente ha comprado
      */
     public void ticketCompra(){
         Producto comprado = sesion.getCarrito();
@@ -164,7 +164,7 @@ public class Tienda implements Sujeto{
      */
     public void registrarObservador(Cliente cliente){
         ClienteProxy clienteProxy = new ClienteProxy(cliente);
-        listaClientes.add(clienteProxy);
+        listaClientes.add(cliente);
     }
 
     /**
@@ -174,7 +174,7 @@ public class Tienda implements Sujeto{
      */
     public void quitarObservador(Cliente cliente){
         ClienteProxy clienteProxy = new ClienteProxy(cliente);
-        listaClientes.remove(clienteProxy);
+        listaClientes.remove(cliente);
     }
 
     /**
@@ -183,7 +183,7 @@ public class Tienda implements Sujeto{
      * @param oferta Oferta que se va a notificar
      */
     public void notificarObservador(){
-        for(ClienteProxy cliente : listaClientes){
+        for(Cliente cliente : listaClientes){
             String mensaje = "";
             if ("Mexico".equals(cliente.getPais()) && ofertaMexico) {
                 mensaje = "Tienes " + oferta + "% de descuento ";
@@ -200,46 +200,15 @@ public class Tienda implements Sujeto{
     }
 
     /**
-    * Descarga desde el servidor la lista de clientes
-    */
-    private void descargarClientes(){
-        try {
-            Socket s = new Socket("localhost", 8080);
-            RemoteMessagePassing rmp = new RemoteMessagePassing(s);
-            rmp.send("descargarClientes");
-            listaClientes = (ArrayList<ClienteProxy>) rmp.receive();
-            rmp.close();
-        } catch(Exception e) {
-            System.out.println("El servidor de la tienda no esta en linea");
-            System.out.println("En otra terminal ejecuta \"java Main servidor\"");
-            System.exit(1);
-        }
-    }
-
-    /**
-    * Cierra el servidor de la tienda
-    */
-    public void cerrarServidor(){
-        try {
-            Socket s = new Socket("localhost", 8080);
-            RemoteMessagePassing rmp = new RemoteMessagePassing(s);
-            rmp.send("cerrarServidor");
-            rmp.close();
-        } catch(Exception e) {
-
-        }
-    }
-
-    /**
     * Inicia sesion en la tienda, si los datos son correctos
     *
     * @param nombreUsuario Nombre de usuario para iniciar sesión
     * @param contrasena Constraseña para intentar iniciar sesión
     */
     public void iniciarSesion(String nombreUsuario, String contrasena){
-        for (ClienteProxy cp : listaClientes) {
+        for (Cliente cp : listaClientes) {
             if (cp.inicioSesion(nombreUsuario, contrasena)) {
-                sesion = cp;
+                sesion = new ClienteProxy(cp);
                 if ("Mexico".equals(sesion.getPais())) {
                     idioma = new EspanolMexico();
                 } else if ("España".equals(sesion.getPais())) {
@@ -354,7 +323,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Método que borrar el carrito del usuario en caso de cancelar 
+     * Método que borrar el carrito del usuario en caso de cancelar
      * la compra
      */
     public void borrarCarrito(){
@@ -364,7 +333,7 @@ public class Tienda implements Sujeto{
                 System.out.println("Padrino borraremos tu carrito");
                 sesion.vaciarCarrito();
             }else if("Espana".equals(sesion.getPais())){
-                System.out.println("Chaval, mira que rapido va Alonso, ah tu carro lo borramos" 
+                System.out.println("Chaval, mira que rapido va Alonso, ah tu carro lo borramos"
                 +"por pesado");
                 sesion.vaciarCarrito();
             }else if("EUA".equals(sesion.getPais())){

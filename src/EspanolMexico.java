@@ -26,6 +26,7 @@ public class EspanolMexico implements Idioma{
         System.out.println("¡Tenemos muchos productos para ti!\n" +
                             "1. Ver el catalogo\n" +
                             "2. Comprar algo\n" +
+                            "3. Cerrar sesion\n" +
                             "0. Salir de la tienda");
     }
 
@@ -96,7 +97,7 @@ public class EspanolMexico implements Idioma{
      */
     @Override
     public void despedirse(){
-        System.out.println("¡Hasta luego!");
+        System.out.println("¡Hasta luego carnal!");
     }
 
     @Override

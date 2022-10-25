@@ -10,7 +10,7 @@ import java.io.Serializable;
 * @version octubre 2022
 *
 */
-public class ClienteProxy implements Serializable, InterfazCliente, Observador {
+public class ClienteProxy implements Serializable, InterfazCliente {
 
     /**
     * Cliente real al que hace referencia el proxy
@@ -23,22 +23,12 @@ public class ClienteProxy implements Serializable, InterfazCliente, Observador {
     private Producto carritoCompra;
 
     /**
-    * Cadena con la promocion que puede aprovechar el cliente
-    */
-    private String promocion;
-
-    /**
     * Constructor del proxy de un cliente
     *
     * @param clienteReal Cliente al que se refiere el proxy
     */
     public ClienteProxy(Cliente clienteReal){
         this.clienteReal = clienteReal;
-    }
-
-    @Override
-    public boolean inicioSesion(String nombreUsuario, String contrasena){
-        return clienteReal.inicioSesion(nombreUsuario, contrasena);
     }
 
     @Override
@@ -117,35 +107,17 @@ public class ClienteProxy implements Serializable, InterfazCliente, Observador {
     }
 
     /**
-    * Actualiza la información de promocion que puede
-    * aprovechar el cliente
-    *
-    * @param promocion Nueva promocion para el cliente
-    */
-    public void actualizarPromocion(String promocion){
-        this.promocion = promocion;
-    }
-
-    /**
-     * Metodo que actualiza las promociones de los productos de la tienda
-     * @param mensaje Mensaje que verán los clientes sobre la promoción
-     */
-    public void actualizar(String mensaje){
-        actualizarPromocion(mensaje);
-    }
-
-    /**
     * Devuelve la promocion que aplica para el cliente
     *
     * @return Cadena con la promocion dirigida al cliente
     */
     public String getPromocion(){
-        return promocion;
+        return clienteReal.getPromocion();
     }
 
     /**
      * Metodo para obtener el saldo del cliente
-     * 
+     *
      * @return saldo - Saldo del cliente
      */
     public double getSaldo(){
@@ -154,7 +126,7 @@ public class ClienteProxy implements Serializable, InterfazCliente, Observador {
 
     /**
      * Metodo para cambiar el saldo del cliente
-     * 
+     *
      * @return saldo - Saldo del cliente
      */
     public void setSaldo(double saldo){
