@@ -108,9 +108,12 @@ public class Tienda implements Sujeto{
      */
     public void pagar(){
         Producto producto = sesion.getCarrito();
-        if (producto != null) {
+        if(producto != null && sesion.getSaldo() < producto.getPrecio()){
+            idioma.mensajeAlerta(4);
+        }else if (producto != null) {
             idioma.compraSegura(sesion);
             ticketCompra();
+            sesion.setSaldo(sesion.getSaldo() - producto.getPrecio());
             sesion.vaciarCarrito();
         }else{
             idioma.mensajeAlerta(2);

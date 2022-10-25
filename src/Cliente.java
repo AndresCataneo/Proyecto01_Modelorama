@@ -79,6 +79,7 @@ public class Cliente implements Serializable, InterfazCliente {
         this.direccion = direccion;
         this.cuentaBanco = cuentaBanco;
         this.pais = pais;
+        this.saldo = saldo;
         this.id = id;
     }
 
