@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 
 /**
  * Clae que simula la interaccion del usuario en una tienda
- * 
+ *
  * @author Pedro
  * @author Gaelinho
  * @author Andres
@@ -66,16 +66,16 @@ public class App {
         }
         t.saludar();
         int menuInicial;
-        do { 
+        do {
             t.menuInicial();
-            while(true){
-                try{
-                    menuInicial = scn.nextInt();
+            while (true) {
+                try {
+                    String opcionUsuario = scn.nextLine();
+                    menuInicial = Integer.parseInt(opcionUsuario);
                     break;
-                }catch(InputMismatchException e){
+                } catch(NumberFormatException e) {
                     t.opcionInvalida();
                     t.menuInicial();
-                    scn.nextLine();
                 }
             }
             switch (menuInicial) {
@@ -87,13 +87,14 @@ public class App {
                     do {
                         t.catalogo();
                         t.menuCompra();
-                        while(true){
-                            try{
-                                menuCompra = scn.nextInt();
+                        while (true) {
+                            try {
+                                String opcionUsuario = scn.nextLine();
+                                menuCompra = Integer.parseInt(opcionUsuario);
                                 break;
-                            }catch(InputMismatchException e){
+                            } catch(NumberFormatException e) {
                                 t.opcionInvalida();
-                                scn.nextLine();
+                                t.menuCompra();
                             }
                         }
                         switch (menuCompra) {
@@ -102,7 +103,7 @@ public class App {
                                 break;
                             case 2:
                                 t.pagar();
-                                //menuCompra = 0;
+                                menuCompra = 0;
                                 break;
                             case 0:
                                 t.borrarCarrito();

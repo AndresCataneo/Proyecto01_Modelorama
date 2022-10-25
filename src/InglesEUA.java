@@ -45,8 +45,18 @@ public class InglesEUA implements Idioma{
             return ;
         }
         Scanner scn = new Scanner(System.in);
-        System.out.println("Write de product barcode:");
-        int codigoBarras = scn.nextInt();
+        System.out.println("Write the product barcode:");
+        int codigoBarras;
+        while (true) {
+            try {
+                String opcionUsuario = scn.nextLine();
+                codigoBarras = Integer.parseInt(opcionUsuario);
+                break;
+            } catch(NumberFormatException e) {
+                opcionInvalida();
+                System.out.println("Write a product barcode:");
+            }
+        }
         Catalogo catalogo = Catalogo.getInstance();
         Producto aComprar = catalogo.getProducto(codigoBarras);
         if (aComprar == null) {

@@ -45,8 +45,18 @@ public class EspanolEspana implements Idioma{
             return ;
         }
         Scanner scn = new Scanner(System.in);
-        System.out.println("Ingresa el código de barras del producto");
-        int codigoBarras = scn.nextInt();
+        System.out.println("Chaval, ingresa el código de barras del producto");
+        int codigoBarras;
+        while (true) {
+            try {
+                String opcionUsuario = scn.nextLine();
+                codigoBarras = Integer.parseInt(opcionUsuario);
+                break;
+            } catch(NumberFormatException e) {
+                opcionInvalida();
+                System.out.println("Ingresa un código de barras de producto");
+            }
+        }
         Catalogo catalogo = Catalogo.getInstance();
         Producto aComprar = catalogo.getProducto(codigoBarras);
         if (aComprar == null) {
@@ -114,5 +124,5 @@ public class EspanolEspana implements Idioma{
         }
     }
 
-    
+
 }

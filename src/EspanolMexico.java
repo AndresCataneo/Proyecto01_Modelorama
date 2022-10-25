@@ -47,7 +47,17 @@ public class EspanolMexico implements Idioma{
         }
         Scanner scn = new Scanner(System.in);
         System.out.println("Ingresa el código de barras del producto");
-        int codigoBarras = scn.nextInt();
+        int codigoBarras;
+        while (true) {
+            try {
+                String opcionUsuario = scn.nextLine();
+                codigoBarras = Integer.parseInt(opcionUsuario);
+                break;
+            } catch(NumberFormatException e) {
+                opcionInvalida();
+                System.out.println("Ingresa un código de barras de producto");
+            }
+        }
         Catalogo catalogo = Catalogo.getInstance();
         Producto aComprar = catalogo.getProducto(codigoBarras);
         if (aComprar == null) {
@@ -67,7 +77,7 @@ public class EspanolMexico implements Idioma{
         String numCuentaBanco = scn.nextLine();
         if (!sesion.compraSegura(numCuentaBanco)) {
             System.out.println("Eso es todo. No te apures, la " +
-            "policía ya esta en camino");
+            "migra ya esta en camino");
             System.exit(1);
         }
         System.out.println("Transacción exitosa");
