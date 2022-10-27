@@ -15,7 +15,7 @@ import java.util.InputMismatchException;
 public class App {
 
     /**
-     *
+     * Metodo principal de la clase App
      */
     public static void main(String[] args){
         Tienda t = new Tienda();
@@ -23,6 +23,7 @@ public class App {
         Scanner scn = new Scanner(System.in);
         int menuInicial;
         do {
+            //--------------------Inicio de sesion--------------------
             while(!t.haySesionIniciada()){
                 System.out.print("Usuario: ");
                 String usuario = scn.nextLine();
@@ -30,6 +31,7 @@ public class App {
                 String contrasena = scn.nextLine();
                 t.iniciarSesion(usuario, contrasena);
             }
+            //--------------------Menu principal--------------------
             t.saludar();
             do {
                 t.menuInicial();
@@ -62,6 +64,7 @@ public class App {
                                     t.menuCompra();
                                 }
                             }
+                            //--------------------Seccion para comprar un producto--------------------
                             switch (menuCompra) {
                                 case 1:
                                     t.agregarAlCarrito();
