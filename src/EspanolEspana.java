@@ -39,6 +39,11 @@ public class EspanolEspana implements Idioma{
                             "0. Cancelar compra");
     }
 
+    /**
+    * Agrega un producto al carrito del cliente a partir de su codigo de barras en español de España
+    *
+    * @parma sesion Cliente que agregara algo a su carrito
+    */
     @Override
     public void agregarAlCarrito(ClienteProxy sesion){
         if (sesion.getCarrito() != null) {
@@ -67,6 +72,11 @@ public class EspanolEspana implements Idioma{
         sesion.agregarAlCarrito(aComprar);
     }
 
+    /**
+    * Pantalla de compra segura en español de España
+    * 
+    * @param sesion Cliente que busca pagar
+    */
     @Override
     public void compraSegura(ClienteProxy sesion){
         Scanner scn = new Scanner(System.in);
@@ -88,7 +98,7 @@ public class EspanolEspana implements Idioma{
      */
     @Override
     public void fechaEntrega(){
-        System.out.println("Sus productos serán entregados en 3 dias");
+        System.out.println("\nSus productos serán entregados en 3 dias\n");
     }
 
     /**
@@ -99,11 +109,18 @@ public class EspanolEspana implements Idioma{
         System.out.println("Gracias por su compra!");
     }
 
+    /**
+    * Mensaje de error en español de españa al seleccionar una opcion
+    */
     @Override
     public void opcionInvalida(){
         System.out.println("Opción inválida chaval");
     }
 
+    /**
+     * Metodo que enviará un mensaje al cliente en español de España para que entienda por que no se puede realizar la accion
+     * @param opcion
+     */
     @Override
     public void mensajeAlerta(int opcion){
 
@@ -125,5 +142,13 @@ public class EspanolEspana implements Idioma{
         }
     }
 
+    /**
+     * Metodo para que el cliente vea su saldo de su cuenta en español de España
+     * @param sesion
+     */
+    @Override
+    public String verSaldo(ClienteProxy sesion){
+        return "Chaval, su saldo es de: " + sesion.getSaldo();
+    }
 
 }

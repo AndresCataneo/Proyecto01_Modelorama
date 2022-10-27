@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class InglesEUA implements Idioma{
 
     /**
-     * Saludo de bienvenida en el idioma ingles de los Estados Unidos
+     * Saludo de bienvenida en el idioma ingles estadounidense
      */
     @Override
     public void saludar(){
@@ -18,7 +18,7 @@ public class InglesEUA implements Idioma{
     }
 
     /**
-     * Despliega el menu en ingles de los Estados Unidos
+     * Despliega el menu en ingles estadounidense
      */
     @Override
     public void menuInicial(){
@@ -30,7 +30,7 @@ public class InglesEUA implements Idioma{
     }
 
     /**
-     * Despliega el menu de compra en ingles de los Estados Unidos
+     * Despliega el menu de compra en ingles estadounidense
      */
     @Override
     public void menuCompra(){
@@ -39,6 +39,11 @@ public class InglesEUA implements Idioma{
                             "0. Cancel purchase");
     }
 
+    /**
+    * Agrega un producto al carrito del cliente a partir de su codigo de barras en ingles estadounidense
+    *
+    * @parma sesion Cliente que agregara algo a su carrito
+    */
     @Override
     public void agregarAlCarrito(ClienteProxy sesion){
         if (sesion.getCarrito() != null) {
@@ -67,6 +72,11 @@ public class InglesEUA implements Idioma{
         sesion.agregarAlCarrito(aComprar);
     }
 
+    /**
+    * Pantalla de compra segura en ingles estadounidense
+    * 
+    * @param sesion Cliente que busca pagar
+    */
     @Override
     public void compraSegura(ClienteProxy sesion){
         Scanner scn = new Scanner(System.in);
@@ -84,15 +94,15 @@ public class InglesEUA implements Idioma{
     }
 
     /**
-     * Despliega la fecha de entrega de los productos en ingles de los Estados Unidos
+     * Despliega la fecha de entrega de los productos en ingles estadounidense
      */
     @Override
     public void fechaEntrega(){
-        System.out.println("Your products will be delivered in 3 days");
+        System.out.println("\nYour products will be delivered in 3 days\n");
     }
 
     /**
-     * Despedida en ingles de los Estados Unidos
+     * Despedida en ingles estadounidense
      */
     @Override
     public void despedirse(){
@@ -100,12 +110,18 @@ public class InglesEUA implements Idioma{
         System.out.println("See you soon!");
     }
 
+    /**
+    * Mensaje de error en ingles estadounidense al seleccionar una opcion
+    */
     @Override
     public void opcionInvalida(){
         System.out.println("Not a valid option");
     }
 
-
+    /**
+     * Metodo que enviará un mensaje al cliente en ingles para que entienda por que no se puede realizar la accion
+     * @param opcion
+     */
     @Override
     public void mensajeAlerta(int opcion){
         switch (opcion) {
@@ -124,5 +140,14 @@ public class InglesEUA implements Idioma{
             default:
                 break;
         }
+    }
+
+    /**
+     * Metodo para que el cliente vea su saldo de su cuenta en ingles
+     * @param sesion
+     */
+    @Override
+    public String verSaldo(ClienteProxy sesion){
+        return "Your balance is: " + sesion.getSaldo();
     }
 }

@@ -88,7 +88,7 @@ public class Tienda implements Sujeto{
     public void catalogo(){
         Catalogo catalogo = Catalogo.getInstance(); //provisional
         System.out.println(catalogo.informacion());
-        System.out.println("$" + sesion.getSaldo());
+        System.out.println("$" + idioma.verSaldo(sesion)+ "\n");
     }
 
     /**
@@ -201,7 +201,7 @@ public class Tienda implements Sujeto{
 
     /**
     * Inicia sesion en la tienda, si los datos son correctos
-    *
+    * 
     * @param nombreUsuario Nombre de usuario para iniciar sesión
     * @param contrasena Constraseña para intentar iniciar sesión
     */

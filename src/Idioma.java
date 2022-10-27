@@ -61,4 +61,10 @@ public interface Idioma {
      */
     public void mensajeAlerta(int opcion);
 
+    /**
+     * Metodo para que el cliente vea su saldo de su cuenta
+     * @param sesion
+     */
+    public String verSaldo(ClienteProxy sesion);
+
 }
