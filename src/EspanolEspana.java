@@ -24,7 +24,7 @@ public class EspanolEspana implements Idioma{
     public void menuInicial(){
         System.out.println("¡Tenemos muchos productos para ti!\n" +
                             "1. Ver el catalogo\n" +
-                            "2. Comprar algo\n" +
+                            "2. Comprad algo\n" +
                             "3. Cerrar sesion\n" +
                             "0. Salir de la tienda");
     }
@@ -34,8 +34,8 @@ public class EspanolEspana implements Idioma{
      */
     @Override
     public void menuCompra(){
-        System.out.println("1. Agregar al carrito\n" +
-                            "2. Pagar ya\n" +
+        System.out.println("1. Agregad al carrito\n" +
+                            "2. Pagad ya\n" +
                             "0. Cancelar compra");
     }
 
@@ -74,7 +74,7 @@ public class EspanolEspana implements Idioma{
 
     /**
     * Pantalla de compra segura en español de España
-    * 
+    *
     * @param sesion Cliente que busca pagar
     */
     @Override
@@ -83,10 +83,10 @@ public class EspanolEspana implements Idioma{
         System.out.println("*****COMPRA SEGURA*****");
         System.out.println("Para su seguridad necesitamos que ingrese " +
                             "su número de cuenta bancaria");
-        System.out.println("Solo tienes una oportunidad");
+        System.out.println("Solo teneis una oportunidad");
         String numCuentaBanco = scn.nextLine();
         if (!sesion.compraSegura(numCuentaBanco)) {
-            System.out.println("Eso es todo. No te apures, la " +
+            System.out.println("Eso es todo. Llamando a la " +
             "policía ya esta en camino");
             System.exit(1);
         }
