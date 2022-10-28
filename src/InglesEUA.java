@@ -98,7 +98,7 @@ public class InglesEUA implements Idioma{
      */
     @Override
     public void fechaEntrega(){
-        System.out.println("\nYour products will be delivered in 3 days\n");
+        System.out.println("\nYour product will be delivered in 3 days\n");
     }
 
     /**
@@ -132,7 +132,7 @@ public class InglesEUA implements Idioma{
                 System.out.println("Oh man, you are stupid bro, you ain't bought nothing");
                 break;
             case 3:
-                System.out.println("You can't cancel a purchase if you don't have a product in your cart");
+                System.out.println("\nEh man, are you try play with me?, get of here, i will delete your cart\n");
                 break;
             case 4:
                 System.out.println("You can't pay the product because you don't have enough money");

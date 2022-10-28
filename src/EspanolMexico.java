@@ -99,7 +99,7 @@ public class EspanolMexico implements Idioma{
      */
     @Override
     public void fechaEntrega(){
-        System.out.println("\nSus productos serán entregados en 3 días\n");
+        System.out.println("\nSu producto será entregado en 3 días\n");
     }
 
     /**
@@ -129,10 +129,10 @@ public class EspanolMexico implements Idioma{
                 System.out.println("Carnal. No puedes comprar más de un producto a la vez");
                 break;
             case 2:
-            System.out.println("Padrino, no has agregado nada a tu carrito, seriedad por favor");
+                System.out.println("Padrino, no has agregado nada a tu carrito, seriedad por favor");
                 break;
             case 3:
-                System.out.println("Carnal. No puedes cancelar la compra si no tienes un producto en el carrito");
+                System.out.println("\nPadrino borraremos tu carrito\n");
                 break;
             case 4:
                 System.out.println("Carnal. No puedes comprar el procucto porque no tienes suficiente saldo");

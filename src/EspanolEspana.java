@@ -98,9 +98,9 @@ public class EspanolEspana implements Idioma{
      */
     @Override
     public void fechaEntrega(){
-        System.out.println("\nSus productos serán entregados en 3 dias\n");
+        System.out.println("\nSu producto será entregado en 3 dias\n");
+    
     }
-
     /**
      * Despedida en español de España
      */
@@ -132,7 +132,8 @@ public class EspanolEspana implements Idioma{
             System.out.println("Pero por el Real madrid, y sus 14 copas, no has comprado nada aun, chaval te reviento");
                 break;
             case 3:
-                System.out.println("Ostiaaa tio, haber. No puedes cancelar la compra si no tienes un producto en el carrito");
+                System.out.println("\nChaval, mira que rapido va Alonso, ah tu carro lo borramos"
+                +"por pesado\n");
                 break;
             case 4:
                 System.out.println("Chaval. No puedes comprar el procucto porque no tienes suficiente saldo");
