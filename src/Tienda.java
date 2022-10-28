@@ -112,10 +112,15 @@ public class Tienda implements Sujeto{
         Producto producto = sesion.getCarrito();
         if(producto != null && sesion.getSaldo() < producto.getPrecio()){
             idioma.mensajeAlerta(4);
+            sesion.vaciarCarrito();
         }else if (producto != null) {
             idioma.compraSegura(sesion);
             ticketCompra();
-            sesion.setSaldo(sesion.getSaldo() - producto.getPrecio());
+            double precio = producto.getPrecio();
+            if (aplicaOferta()) {
+                precio = precio - (precio * (double) oferta / 100);
+            }
+            sesion.setSaldo(sesion.getSaldo() - precio);
             sesion.vaciarCarrito();
         }else{
             idioma.mensajeAlerta(2);
@@ -188,7 +193,7 @@ public class Tienda implements Sujeto{
             if ("Mexico".equals(cliente.getPais()) && ofertaMexico) {
                 mensaje = "Tienes " + oferta + "% de descuento ";
                 mensaje += "en el departamento de alimenticios";
-            } else if ("Espana".equals(cliente.getPais()) && ofertaEspana) {
+            } else if ("España".equals(cliente.getPais()) && ofertaEspana) {
                 mensaje = "Tienes " + oferta + "% de promo ";
                 mensaje += "en el departamento de electrodomésticos";
             } else if ("EUA".equals(cliente.getPais()) && ofertaEUA) {

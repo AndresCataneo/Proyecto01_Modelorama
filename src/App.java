@@ -30,6 +30,9 @@ public class App {
                 System.out.print("Contraseña: ");
                 String contrasena = scn.nextLine();
                 t.iniciarSesion(usuario, contrasena);
+                if (!t.haySesionIniciada()) {
+                    System.out.println("Usuario y/o contraseña invalidos");
+                }
             }
             //--------------------Menu principal--------------------
             t.saludar();
@@ -51,8 +54,8 @@ public class App {
                         break;
                     case 2:
                         int menuCompra;
+                        t.catalogo();
                         do {
-                            t.catalogo();
                             t.menuCompra();
                             while (true) {
                                 try {
@@ -67,6 +70,7 @@ public class App {
                             //--------------------Seccion para comprar un producto--------------------
                             switch (menuCompra) {
                                 case 1:
+                                    t.catalogo();
                                     t.agregarAlCarrito();
                                     break;
                                 case 2:
