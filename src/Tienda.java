@@ -110,18 +110,24 @@ public class Tienda implements Sujeto{
      */
     public void pagar(){
         Producto producto = sesion.getCarrito();
-        if(producto != null && sesion.getSaldo() < producto.getPrecio()){
-            idioma.mensajeAlerta(4);
-            sesion.vaciarCarrito();
-        }else if (producto != null) {
-            idioma.compraSegura(sesion);
-            ticketCompra();
+
+        if (producto != null) {
             double precio = producto.getPrecio();
+
             if (aplicaOferta()) {
                 precio = precio - (precio * (double) oferta / 100);
             }
-            sesion.setSaldo(sesion.getSaldo() - precio);
-            sesion.vaciarCarrito();
+
+            if(sesion.getSaldo() < producto.getPrecio()){
+                idioma.mensajeAlerta(4);
+                sesion.vaciarCarrito();
+            }else{
+                idioma.compraSegura(sesion);
+                ticketCompra();
+                
+                sesion.setSaldo(sesion.getSaldo() - precio);
+                sesion.vaciarCarrito();
+            }
         }else{
             idioma.mensajeAlerta(2);
         }
