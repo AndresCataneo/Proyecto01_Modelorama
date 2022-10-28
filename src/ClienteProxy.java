@@ -10,7 +10,7 @@ import java.io.Serializable;
 * @version octubre 2022
 *
 */
-public class ClienteProxy implements Serializable, InterfazCliente {
+public class ClienteProxy implements InterfazCliente {
 
     /**
     * Cliente real al que hace referencia el proxy

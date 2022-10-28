@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @version octubre 2022
  *
  */
-public class Cliente implements Serializable, InterfazCliente, Observador {
+public class Cliente implements InterfazCliente, Observador {
 
     /**
     * Nombre de usuario del cliente
@@ -72,6 +72,7 @@ public class Cliente implements Serializable, InterfazCliente, Observador {
     * @param direccion Domicilio del cliente
     * @param cuentaBanco Cuenta Bancaria del cliente
     * @param pais Pais de origen del cliente
+    * @param saldo Saldo del usuario
     * @param id ID del cliente
     */
     public Cliente(String nombreUsuario, String contrasena, String nombre,

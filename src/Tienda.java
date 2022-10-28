@@ -18,39 +18,39 @@ public class Tienda implements Sujeto{
     /**
     * Idioma de la tienda adecuado para el cliente
     */
-    Idioma idioma;
+    private Idioma idioma;
 
     /**
     * Lista de los clientes
     */
-    ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+    private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 
     /**
     * Cliente con sesion iniciada en la tienda
     */
-    ClienteProxy sesion;
+    private ClienteProxy sesion;
 
     /**
     * Booleano que indica si hay oferta en México
     */
-    boolean ofertaMexico = false;
+    private boolean ofertaMexico = false;
 
     /**
     * Booleano que indica si hay oferta en EUA
     */
-    boolean ofertaEUA = false;
+    private boolean ofertaEUA = false;
 
     /**
     * Booleano que indica si hay oferta en España
     */
-    boolean ofertaEspana = false;
+    private boolean ofertaEspana = false;
 
     /**
     * Entero que indica el descuento que tendrán
     * los productos de cierto departamento, dependiendo
     * del país de origen del cliente
     */
-    int oferta = 0;
+    private int oferta = 0;
 
     /**
      * Constructor de la clase Tienda
@@ -201,7 +201,7 @@ public class Tienda implements Sujeto{
 
     /**
     * Inicia sesion en la tienda, si los datos son correctos
-    * 
+    *
     * @param nombreUsuario Nombre de usuario para iniciar sesión
     * @param contrasena Constraseña para intentar iniciar sesión
     */
