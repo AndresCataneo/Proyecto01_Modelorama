@@ -42,7 +42,7 @@ public class Departamento extends ComponenteCatalogo {
     }
 
     /**
-     * Metodo que agrega un producto al departamento
+     * Método que agrega un producto al departamento
      * 
      * @param producto Producto a agregar
      */
@@ -53,7 +53,7 @@ public class Departamento extends ComponenteCatalogo {
     }
 
     /**
-     * Metodo que crea un iterador de la lista de productos del departamento
+     * Método que crea un iterador de la lista de productos del departamento
      * 
      * @return informacion - Cadena con la información del producto
      */
@@ -69,7 +69,7 @@ public class Departamento extends ComponenteCatalogo {
     }
 
     /**
-     * Metodo que crea un iterador de la lista de productos del departamento
+     * Método que crea un iterador de la lista de productos del departamento
      * 
      * @return iterator - Iterador de la lista de productos del departamento
      */

@@ -14,17 +14,17 @@ import java.util.Iterator;
 public class Catalogo {
 
     /**
-    * Lista de los departamentos del catalogo.
+    * Lista de los departamentos del catálogo.
     */
     private static ArrayList<Departamento> listaDepartamentos = new ArrayList<Departamento>();
 
     /**
-    * Unico catalogo
+    * Único catálogo
     */
     private static Catalogo unicoCatalogo;
 
     /**
-    * Constructor del catalogo
+    * Constructor del catálogo
     */
     private Catalogo(){
         Departamento alimenticios = new DepartamentoAlimenticios();
@@ -36,9 +36,9 @@ public class Catalogo {
     }
 
     /**
-    * Devuelve la misma instancia del catalogo
+    * Devuelve la misma instancia del catálogo
     *
-    * @return Unico catalogo - Devulve la unica instancia del catalogo
+    * @return Único catálogo - Devulve la única instancia del catálogo
     */
     public static Catalogo getInstance(){
         if (unicoCatalogo == null) {
@@ -63,7 +63,7 @@ public class Catalogo {
     }
 
     /**
-    * Agrega un departamento al catalogo
+    * Agrega un departamento al catálogo
     *
     * @param departamento - Departamento a agregar
     */
@@ -72,7 +72,7 @@ public class Catalogo {
     }
 
     /**
-    * Crea un iterador de la lista de departamentos del catalogo
+    * Crea un iterador de la lista de departamentos del catálogo
     *
     * @return Iterator - Iterador de los departamentos
     */
@@ -81,9 +81,9 @@ public class Catalogo {
     }
 
     /**
-    * Busca y devuelve un producto en el catalogo a partir
+    * Busca y devuelve un producto en el catálogo a partir
     * de su codigo de barras, en caso de no existir el código
-    * en el catalogo, regresa null
+    * en el catálogo, regresa null
     *
     * @param codigoBarras Código de barras del producto deseado
     *

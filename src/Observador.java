@@ -12,7 +12,7 @@ public interface Observador {
     /**
      * Actualiza la información que veran los clientes
      * 
-     * @param mensaje Mensaje que se le enviara al cliente
+     * @param mensaje Mensaje que se le enviará al cliente
      */ 
     public void actualizar(String mensaje);
 }

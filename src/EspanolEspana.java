@@ -18,7 +18,7 @@ public class EspanolEspana implements Idioma{
     }
 
     /**
-     * Despliega el menu en español de España
+     * Despliega el menú en español de España
      */
     @Override
     public void menuInicial(){
@@ -30,7 +30,7 @@ public class EspanolEspana implements Idioma{
     }
 
     /**
-     * Despliega el menu de compra en español de España
+     * Despliega el menú de compra en español de España
      */
     @Override
     public void menuCompra(){
@@ -42,7 +42,7 @@ public class EspanolEspana implements Idioma{
     /**
     * Agrega un producto al carrito del cliente a partir de su codigo de barras en español de España
     *
-    * @parma sesion Cliente que agregara algo a su carrito
+    * @parma sesion Cliente que agregará algo a su carrito
     */
     @Override
     public void agregarAlCarrito(ClienteProxy sesion){
@@ -110,7 +110,7 @@ public class EspanolEspana implements Idioma{
     }
 
     /**
-    * Mensaje de error en español de españa al seleccionar una opcion
+    * Mensaje de error en español de españa al seleccionar una opción
     */
     @Override
     public void opcionInvalida(){
@@ -118,9 +118,9 @@ public class EspanolEspana implements Idioma{
     }
 
     /**
-     * Metodo que enviará un mensaje al cliente en español de España para que entienda por que no se puede realizar la accion
+     * Método que enviará un mensaje al cliente en español de España para que entienda por que no se puede realizar la acción
      * 
-     * @param opcion Opcion que no se puede realizar o un mensaje que se quiere enviar al cliente
+     * @param opcion Opción que no se puede realizar o un mensaje que se quiere enviar al cliente
      */
     @Override
     public void mensajeAlerta(int opcion){
@@ -145,9 +145,9 @@ public class EspanolEspana implements Idioma{
     }
 
     /**
-     * Metodo para que el cliente vea su saldo de su cuenta en español de España
+     * Método para que el cliente vea su saldo de su cuenta en español de España
      * 
-     * @param sesion Cliente que se le mostrara su saldo
+     * @param sesion Cliente que se le mostrará su saldo
      */
     @Override
     public String verSaldo(ClienteProxy sesion){

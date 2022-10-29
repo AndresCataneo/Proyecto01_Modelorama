@@ -17,19 +17,19 @@ public interface Idioma {
     public void saludar();
 
     /**
-     * Despliega el menu
+     * Despliega el menú
      */
     public void menuInicial();
 
     /**
-     * Despliega el menu de compra
+     * Despliega el menú de compra
      */
     public void menuCompra();
 
     /**
     * Agrega un producto al carrito del cliente a partir de su codigo de barras
     *
-    * @parma sesion Cliente que agregara algo a su carrito
+    * @parma sesion Cliente que agregará algo a su carrito
     */
     public void agregarAlCarrito(ClienteProxy sesion);
 
@@ -51,19 +51,19 @@ public interface Idioma {
     public void despedirse();
 
     /**
-    * Mensaje de error al seleccionar una opcion
+    * Mensaje de error al seleccionar una opción
     */
     public void opcionInvalida();
 
     /**
-     * Metodo que enviará un mensaje al cliente para que entienda por que no se puede realizar la accion
+     * Método que enviará un mensaje al cliente para que entienda por que no se puede realizar la acción
      * 
-     * @param opcion Opcion que no se puede realizar o un mensaje que se quiere enviar al cliente
+     * @param opcion Opción que no se puede realizar o un mensaje que se quiere enviar al cliente
      */
     public void mensajeAlerta(int opcion);
 
     /**
-     * Metodo para que el cliente vea su saldo de su cuenta
+     * Método para que el cliente vea su saldo de su cuenta
      * 
      * @param sesion
      */

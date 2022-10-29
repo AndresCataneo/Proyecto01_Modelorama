@@ -26,7 +26,7 @@ public class Tienda implements Sujeto{
     private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 
     /**
-    * Cliente con sesion iniciada en la tienda
+    * Cliente con sesión iniciada en la tienda
     */
     private ClienteProxy sesion;
 
@@ -66,7 +66,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo que da la bienvendiada al cliente en su respectivo idioma
+     * Método que da la bienvendiada al cliente en su respectivo idioma
      */
     public void saludar(){
         idioma.saludar();
@@ -76,14 +76,14 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo que le muestra al cliente el menu inicial en su respectivo idioma
+     * Método que le muestra al cliente el menú inicial en su respectivo idioma
      */
     public void menuInicial(){
         idioma.menuInicial();
     }
 
     /**
-     * Metodo que le muestra al cliente el catalogo con los productos en el idioma regional
+     * Método que le muestra al cliente el catálogo con los productos en el idioma regional
      */
     public void catalogo(){
         Catalogo catalogo = Catalogo.getInstance(); //provisional
@@ -92,7 +92,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo que le muestra al cliente el menu de compra en su respectivo idioma
+     * Método que le muestra al cliente el menú de compra en su respectivo idioma
      */
     public void menuCompra(){
         idioma.menuCompra();
@@ -106,7 +106,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo para que el clienta pague su producto
+     * Método para que el clienta pague su producto
      */
     public void pagar(){
         Producto producto = sesion.getCarrito();
@@ -134,7 +134,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo que le muestra al cliente el ticket de compra en su respectivo idioma
+     * Método que le muestra al cliente el ticket de compra en su respectivo idioma
      */
     public void ticketCompra(){
         Producto comprado = sesion.getCarrito();
@@ -155,7 +155,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo que da la despedida al cliente en su respectivo idioma
+     * Método que da la despedida al cliente en su respectivo idioma
      */
     public void despedirse(){
         idioma.despedirse();
@@ -169,7 +169,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo para registrar un cliente y poder enviarle notificaciones
+     * Método para registrar un cliente y poder enviarle notificaciones
      *
      * @param cliente Cliente que se va a registrar
      */
@@ -178,7 +178,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo para eliminar un cliente de la lista de clientes
+     * Método para eliminar un cliente de la lista de clientes
      *
      * @param cliente Cliente que se va a eliminar
      */
@@ -187,7 +187,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-     * Metodo para notificar a los clientes de una oferta
+     * Método para notificar a los clientes de una oferta
      *
      */
     public void notificarObservador(){
@@ -208,7 +208,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-    * Inicia sesion en la tienda, si los datos son correctos
+    * Inicia sesión en la tienda, si los datos son correctos
     *
     * @param nombreUsuario Nombre de usuario para iniciar sesión
     * @param contrasena Constraseña para intentar iniciar sesión
@@ -237,7 +237,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-    * Indica si hay alguna sesión iniciada en la tienda
+    * Índica si hay alguna sesión iniciada en la tienda
     *
     * @return   true    -   si hay una sesión iniciada
     *           false   -   si no hay sesión inciada
@@ -307,7 +307,7 @@ public class Tienda implements Sujeto{
     }
 
     /**
-    * Indica si aplica la oferta
+    * Índica si aplica la oferta
     *
     * @return   true    -   si aplica la oferta
     *           false   -   si no aplica

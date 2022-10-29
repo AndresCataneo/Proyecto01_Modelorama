@@ -58,7 +58,7 @@ public class Cliente implements InterfazCliente, Observador {
     private long id;
 
     /**
-    * Cadena con la promocion que puede aprovechar el cliente
+    * Cadena con la promoción que puede aprovechar el cliente
     */
     private String promocion;
 
@@ -68,7 +68,7 @@ public class Cliente implements InterfazCliente, Observador {
     * @param nombreUsuario Nombre de usuario del cliente
     * @param contrasena Contraseña del cliente
     * @param nombre Nombre real del cliente
-    * @param telefono Teléfonodel cliente
+    * @param telefono Teléfono del cliente
     * @param direccion Domicilio del cliente
     * @param cuentaBanco Cuenta Bancaria del cliente
     * @param pais Pais de origen del cliente
@@ -90,11 +90,11 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-     * Metodo para que el cliente inicie sesion y pueda ver y comprar productos de la tienda
+     * Método para que el cliente inicie sesion y pueda ver y comprar productos de la tienda
      *
      * @param nombreUsuario Nombre de usuario del cliente
      * @param contrasena Contraseña del cliente
-     * @return boolean - Si el inicio de sesion fue exitoso, false si no lo fue
+     * @return boolean - Si el inicio de sesión fue exitoso, false si no lo fue
      */
     public boolean inicioSesion(String nombreUsuario, String contrasena){
         return nombreUsuario.equals(this.nombreUsuario)
@@ -102,7 +102,7 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-     * Metodo para verificar los datos de la cuenta bancaria del cliente y pueda comprar productos
+     * Método para verificar los datos de la cuenta bancaria del cliente y pueda comprar productos
      *
      * @param cuentaBanco Cuenta bancaria del cliente
      * @return boolean  - true    -   si la cuenta bancaria es correcta
@@ -113,7 +113,7 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-     * Metodo para obtener el nombre de usuario del cliente
+     * Método para obtener el nombre de usuario del cliente
      *
      * @return nombre - Nombre de usuario del cliente
      */
@@ -122,34 +122,34 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-     * Metodo para obtener el telefono del cliente
+     * Método para obtener el teléfono del cliente
      *
-     * @return telefono - Telefono del cliente
+     * @return telefono - Teléfono del cliente
      */
     public String getTelefono(){
         return telefono;
     }
 
     /**
-     * Metodo para obtener la direccion del cliente
+     * Método para obtener la dirección del cliente
      *
-     * @return direccion - Direccion del cliente
+     * @return direccion - Dirección del cliente
      */
     public String getDireccion(){
         return direccion;
     }
 
     /**
-     * Metodo para obtener el pais de origen del cliente
+     * Método para obtener el pais de origen del cliente
      *
-     * @return pais - Pais de origen del cliente
+     * @return pais - País de origen del cliente
      */
     public String getPais(){
         return pais;
     }
 
     /**
-     * Metodo para obtener el ID del cliente
+     * Método para obtener el ID del cliente
      *
      * @return id - ID del cliente
      */
@@ -158,7 +158,7 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-     * Metodo para obtener el saldo del cliente
+     * Método para obtener el saldo del cliente
      *
      * @return saldo - Saldo del cliente
      */
@@ -167,7 +167,7 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-     * Metodo para cambiar el saldo del cliente
+     * Método para cambiar el saldo del cliente
      *
      * @param saldo - Saldo del cliente
      */
@@ -176,7 +176,7 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-    * Devuelve la promocion que aplica para el cliente
+    * Devuelve la promoción que aplica para el cliente
     *
     * @return promocion - Promoción con la promocion dirigida al cliente
     */
@@ -185,7 +185,7 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-    * Metodo para actualizar la promocion que aplica para el cliente y se le notifica
+    * Método para actualizar la promoción que aplica para el cliente y se le notifica
     * @param mensaje - Promocion que aplica para el cliente
     */
     public void actualizar(String mensaje){
@@ -193,8 +193,8 @@ public class Cliente implements InterfazCliente, Observador {
     }
 
     /**
-    * Metodo para actualizar la promocion que aplica para el cliente
-    * @param mensaje - Promocion que aplica para el cliente
+    * Método para actualizar la promoción que aplica para el cliente
+    * @param mensaje - Promoción que aplica para el cliente
     */
     public void actualizarPromocion(String mensaje){
         promocion = mensaje;

@@ -1,5 +1,5 @@
 /**
- * Clase que simula un departamento de productos de electronica.
+ * Clase que simula un departamento de productos de electrónica.
  *
  * @author Pedro
  * @author Gaelinho
@@ -9,7 +9,7 @@
 public class DepartamentoElectronica extends Departamento{
 
     /**
-     * Constructor de un departamento de electronica
+     * Constructor de un departamento de electrónica
      */
     public DepartamentoElectronica() {
         super("Electrónica");

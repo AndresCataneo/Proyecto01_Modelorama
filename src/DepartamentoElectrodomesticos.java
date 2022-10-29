@@ -1,5 +1,5 @@
 /**
- * Clase que simula un departamento de productos de electrodomesticos.
+ * Clase que simula un departamento de productos de electrodomésticos.
  *
  * @author Pedro
  * @author Gaelinho
@@ -9,7 +9,7 @@
 public class DepartamentoElectrodomesticos extends Departamento{
 
     /**
-     * Constructor de un departamento de electrodomesticos
+     * Constructor de un departamento de electrodomésticos
      */
     public DepartamentoElectrodomesticos() {
         super("Electrodomésticos");

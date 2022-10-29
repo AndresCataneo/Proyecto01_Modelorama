@@ -18,7 +18,7 @@ public class ClienteProxy implements InterfazCliente {
     private Cliente clienteReal;
 
     /**
-    * Carrito de compras de un solo articulo del cliente
+    * Carrito de compras de un solo artículo del cliente
     */
     private Producto carritoCompra;
 
@@ -48,7 +48,7 @@ public class ClienteProxy implements InterfazCliente {
     /**
     * Devuelve el producto en el carrito de compra del cliente
     *
-    * @return Unico producto en el carrito
+    * @return Único producto en el carrito
     */
     public Producto getCarrito(){
         return carritoCompra;
@@ -71,27 +71,27 @@ public class ClienteProxy implements InterfazCliente {
     }
 
     /**
-    * Devuelve el telefono del cliente
+    * Devuelve el teléfono del cliente
     *
-    * @return Cadena con el telefono del cliente
+    * @return Cadena con el teléfono del cliente
     */
     public String getTelefono(){
         return clienteReal.getTelefono();
     }
 
     /**
-    * Devuelve la direccion del cliente
+    * Devuelve la dirección del cliente
     *
-    * @return Cadena con la direccion del cliente
+    * @return Cadena con la dirección del cliente
     */
     public String getDireccion(){
         return clienteReal.getDireccion();
     }
 
     /**
-    * Devuelve el pais de origen del cliente
+    * Devuelve el país de origen del cliente
     *
-    * @return Cadena con el pais de origen del cliente
+    * @return Cadena con el país de origen del cliente
     */
     public String getPais(){
         return clienteReal.getPais();
@@ -107,16 +107,16 @@ public class ClienteProxy implements InterfazCliente {
     }
 
     /**
-    * Devuelve la promocion que aplica para el cliente
+    * Devuelve la promoción que aplica para el cliente
     *
-    * @return Cadena con la promocion dirigida al cliente
+    * @return Cadena con la promoción dirigida al cliente
     */
     public String getPromocion(){
         return clienteReal.getPromocion();
     }
 
     /**
-     * Metodo para obtener el saldo del cliente
+     * Método para obtener el saldo del cliente
      *
      * @return saldo - Saldo del cliente
      */
@@ -125,7 +125,7 @@ public class ClienteProxy implements InterfazCliente {
     }
 
     /**
-     * Metodo para cambiar el saldo del cliente
+     * Método para cambiar el saldo del cliente
      *
      * @return saldo - Saldo del cliente
      */

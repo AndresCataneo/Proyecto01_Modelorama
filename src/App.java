@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 /**
- * Clae que simula la interaccion del usuario en una tienda
+ * Clase que simula la interacción del usuario en una tienda
  *
  * @author Pedro
  * @author Gaelinho
@@ -15,7 +15,7 @@ import java.util.InputMismatchException;
 public class App {
 
     /**
-     * Metodo principal de la clase App
+     * Método principal de la clase App
      */
     public static void main(String[] args){
         Tienda t = new Tienda();
@@ -23,7 +23,7 @@ public class App {
         Scanner scn = new Scanner(System.in);
         int menuInicial;
         do {
-            //--------------------Inicio de sesion--------------------
+            //--------------------Inicio de sesión--------------------
             while(!t.haySesionIniciada()){
                 System.out.print("Usuario: ");
                 String usuario = scn.nextLine();
@@ -34,7 +34,7 @@ public class App {
                     System.out.println("Usuario y/o contraseña invalidos");
                 }
             }
-            //--------------------Menu principal--------------------
+            //--------------------Menú principal--------------------
             t.saludar();
             do {
                 t.menuInicial();
@@ -67,7 +67,7 @@ public class App {
                                     t.menuCompra();
                                 }
                             }
-                            //--------------------Seccion para comprar un producto--------------------
+                            //--------------------Sección para comprar un producto--------------------
                             switch (menuCompra) {
                                 case 1:
                                     t.catalogo();
