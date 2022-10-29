@@ -35,18 +35,28 @@ public class Departamento extends ComponenteCatalogo {
     /**
     * Regresa el nombre del departamento
     *
-    * @return Cadena que representa el nombre del departamento
+    * @return nombre - Cadena que representa el nombre del departamento
     */
     public String getNombre(){
         return nombre;
     }
 
+    /**
+     * Metodo que agrega un producto al departamento
+     * 
+     * @param producto Producto a agregar
+     */
     @Override
     public void agregarProducto(Producto producto){
         listaProductos.add(producto);
         producto.setDepartamento(this);
     }
 
+    /**
+     * Metodo que crea un iterador de la lista de productos del departamento
+     * 
+     * @return informacion - Cadena con la información del producto
+     */
     @Override
     public String informacion(){
         Iterator iterador = getIterador();
@@ -58,6 +68,11 @@ public class Departamento extends ComponenteCatalogo {
         return informacion;
     }
 
+    /**
+     * Metodo que crea un iterador de la lista de productos del departamento
+     * 
+     * @return iterator - Iterador de la lista de productos del departamento
+     */
     @Override
     public Iterator getIterador(){
         return listaProductos.iterator();

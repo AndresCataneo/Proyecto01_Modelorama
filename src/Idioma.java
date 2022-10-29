@@ -57,12 +57,14 @@ public interface Idioma {
 
     /**
      * Metodo que enviará un mensaje al cliente para que entienda por que no se puede realizar la accion
-     * @param opcion
+     * 
+     * @param opcion Opcion que no se puede realizar o un mensaje que se quiere enviar al cliente
      */
     public void mensajeAlerta(int opcion);
 
     /**
      * Metodo para que el cliente vea su saldo de su cuenta
+     * 
      * @param sesion
      */
     public String verSaldo(ClienteProxy sesion);

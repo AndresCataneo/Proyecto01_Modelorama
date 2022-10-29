@@ -119,7 +119,8 @@ public class EspanolEspana implements Idioma{
 
     /**
      * Metodo que enviará un mensaje al cliente en español de España para que entienda por que no se puede realizar la accion
-     * @param opcion
+     * 
+     * @param opcion Opcion que no se puede realizar o un mensaje que se quiere enviar al cliente
      */
     @Override
     public void mensajeAlerta(int opcion){
@@ -145,7 +146,8 @@ public class EspanolEspana implements Idioma{
 
     /**
      * Metodo para que el cliente vea su saldo de su cuenta en español de España
-     * @param sesion
+     * 
+     * @param sesion Cliente que se le mostrara su saldo
      */
     @Override
     public String verSaldo(ClienteProxy sesion){

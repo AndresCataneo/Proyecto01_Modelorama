@@ -94,7 +94,7 @@ public class Cliente implements InterfazCliente, Observador {
      *
      * @param nombreUsuario Nombre de usuario del cliente
      * @param contrasena Contraseña del cliente
-     * @return boolean si el inicio de sesion fue exitoso, false si no lo fue
+     * @return boolean - Si el inicio de sesion fue exitoso, false si no lo fue
      */
     public boolean inicioSesion(String nombreUsuario, String contrasena){
         return nombreUsuario.equals(this.nombreUsuario)
@@ -105,7 +105,8 @@ public class Cliente implements InterfazCliente, Observador {
      * Metodo para verificar los datos de la cuenta bancaria del cliente y pueda comprar productos
      *
      * @param cuentaBanco Cuenta bancaria del cliente
-     * @return boolean si la compra fue exitosa, false si no lo fue
+     * @return boolean  - true    -   si la cuenta bancaria es correcta
+     *                    false   -   si la cuenta bancaria es incorrecta
      */
     public boolean compraSegura(String cuentaBanco){
         return cuentaBanco.equals(this.cuentaBanco);
@@ -168,7 +169,7 @@ public class Cliente implements InterfazCliente, Observador {
     /**
      * Metodo para cambiar el saldo del cliente
      *
-     * @return saldo - Saldo del cliente
+     * @param saldo - Saldo del cliente
      */
     public void setSaldo(double saldo){
         this.saldo = saldo;
@@ -177,21 +178,23 @@ public class Cliente implements InterfazCliente, Observador {
     /**
     * Devuelve la promocion que aplica para el cliente
     *
-    * @return Cadena con la promocion dirigida al cliente
+    * @return promocion - Promoción con la promocion dirigida al cliente
     */
     public String getPromocion(){
         return promocion;
     }
 
     /**
-    *
+    * Metodo para actualizar la promocion que aplica para el cliente y se le notifica
+    * @param mensaje - Promocion que aplica para el cliente
     */
     public void actualizar(String mensaje){
         actualizarPromocion(mensaje);
     }
 
     /**
-    *
+    * Metodo para actualizar la promocion que aplica para el cliente
+    * @param mensaje - Promocion que aplica para el cliente
     */
     public void actualizarPromocion(String mensaje){
         promocion = mensaje;

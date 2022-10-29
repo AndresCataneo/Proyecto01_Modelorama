@@ -38,7 +38,7 @@ public class Catalogo {
     /**
     * Devuelve la misma instancia del catalogo
     *
-    * @return Unico catalogo
+    * @return Unico catalogo - Devulve la unica instancia del catalogo
     */
     public static Catalogo getInstance(){
         if (unicoCatalogo == null) {
@@ -50,7 +50,7 @@ public class Catalogo {
     /**
     * Regresa la información del catálogo
     *
-    * @return Cadena con la información del catálogo
+    * @return informacion- Información con la información del catálogo
     */
     public String informacion(){
         Iterator iterador = getIterador();
@@ -65,7 +65,7 @@ public class Catalogo {
     /**
     * Agrega un departamento al catalogo
     *
-    * @param departamento Departamento a agregar
+    * @param departamento - Departamento a agregar
     */
     private static void agregarDepartamento(Departamento departamento){
         listaDepartamentos.add(departamento);
@@ -74,7 +74,7 @@ public class Catalogo {
     /**
     * Crea un iterador de la lista de departamentos del catalogo
     *
-    * @return Iterador de los departamentos
+    * @return Iterator - Iterador de los departamentos
     */
     public Iterator getIterador(){
         return listaDepartamentos.iterator();

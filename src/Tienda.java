@@ -174,7 +174,6 @@ public class Tienda implements Sujeto{
      * @param cliente Cliente que se va a registrar
      */
     public void registrarObservador(Cliente cliente){
-        ClienteProxy clienteProxy = new ClienteProxy(cliente);
         listaClientes.add(cliente);
     }
 
@@ -184,14 +183,12 @@ public class Tienda implements Sujeto{
      * @param cliente Cliente que se va a eliminar
      */
     public void quitarObservador(Cliente cliente){
-        ClienteProxy clienteProxy = new ClienteProxy(cliente);
         listaClientes.remove(cliente);
     }
 
     /**
      * Metodo para notificar a los clientes de una oferta
      *
-     * @param oferta Oferta que se va a notificar
      */
     public void notificarObservador(){
         for(Cliente cliente : listaClientes){
@@ -252,7 +249,6 @@ public class Tienda implements Sujeto{
     /**
     * Genera un descuento para aplicar a los departamentos
     *
-    * @return Entero que representa un descuento en porcentaje
     */
     private void generaOferta(){
         Random rdm = new Random();
